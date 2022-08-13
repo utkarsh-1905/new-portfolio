@@ -1,0 +1,15 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+body{
+    background-color: black;
+    font-family: 'Cascadia Code', sans-serif;
+    color:white;
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6,p,a,ul,li,td,th,tr,table,div,span,input,textarea,button{
+    margin:0;
+    padding: 0;
+}
