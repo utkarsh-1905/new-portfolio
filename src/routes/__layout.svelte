@@ -6,7 +6,7 @@
 
 <style>
     main {
-        width: 80vw;
-        margin: 0 auto;
+        width: 100vw;
+        min-width: 100vh;
     }
 </style>

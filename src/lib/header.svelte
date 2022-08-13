@@ -2,9 +2,9 @@
     import Navbar from "./navbar.svelte";
 </script>
 
-<h3>
+<!-- <h3>
     My name is <span style="color: #FF8D29;">Utkarsh</span>
-</h3>
+</h3> -->
 <Navbar />
 
 <style>

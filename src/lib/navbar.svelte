@@ -1,11 +1,8 @@
-<hr/>
 <ul>
     <li><a href="/projects">Projects</a></li>
     <li><a href="/">Home</a></li>
     <li><a href="/contact">Contact</a></li>
 </ul>
-<hr/>
-
 
 <style>
     ul{
@@ -20,11 +17,15 @@
     }
     a{
         text-decoration: none;
-        color: #ff8d29;
+        color: #ff5500;
+        font-size: large;
     }
-    hr{
-        border: 1px solid #541690;
-        width: 80vw;
-        margin: 0 auto;
+
+    li{
+        border-bottom: 5px solid transparent;
+    }
+
+    li:hover{
+        border-bottom: 5px solid #39ff14;
     }
 </style>
