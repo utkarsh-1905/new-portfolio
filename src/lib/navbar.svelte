@@ -1,7 +1,11 @@
 <script lang="ts">
     function openDrawer(){
         const drawer: any = document.querySelector('.invert');
-        drawer.style.height = "60%"
+        if(window.innerWidth<400){
+            drawer.style.height = "70%";
+        }else{
+            drawer.style.height = "60%"
+        }
     }
     function closeDrawer(){
         const drawer: any = document.querySelector('.invert');

@@ -54,5 +54,17 @@
     .sitemap{
         color: #c8c8c8;
     }
+
+    @media screen and (max-width:586px){
+        footer{
+            height: 250px;
+        }
+        .social-icon{
+            width:18px;
+        }
+        .cpy{
+            width: 50%;
+        }
+    }
 </style>
 <!-- below 586px -->
