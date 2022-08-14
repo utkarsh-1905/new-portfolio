@@ -1,15 +1,28 @@
 <nav>
-    <ul>
+    <ul class="normal">
         <li><a href="/resume">resume</a></li>
         <li><a href="/projects">projects</a></li>
         <li><a href="/">home</a></li>
         <li><a href="/contact">contact</a></li>
         <li><a href="/blogs">blogs</a></li>
     </ul>
+    <img class="hamburger" src="/hamburger.svg" width="32px" alt="hamburger menu"/>
 </nav>
+<div class="toggleMenu">
+    <div class="invert">
+        <img src="/shortDown.svg" class="close" width="32px" alt="close"/>
+        <ul class="responsive">
+            <li><a href="/resume">resume</a></li>
+            <li><a href="/projects">projects</a></li>
+            <li><a href="/">home</a></li>
+            <li><a href="/contact">contact</a></li>
+            <li><a href="/blogs">blogs</a></li>
+        </ul>
+    </div>
+</div>
 
 <style>
-    ul{
+    .normal{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -46,5 +59,72 @@
         border-radius: 15px;
         background: linear-gradient(145deg, #d3cbcb, #faf1f1);
         box-shadow:  10px 10px 20px #a49e9e, -10px -10px 20px #ffffff;
+    }
+
+    .hamburger,.toggleMenu,.close{
+        display: none;
+    }
+
+    @media screen and (max-width:768px){
+        .normal{
+            display: none;
+        }
+        .hamburger{
+            display: block;
+            padding: 0.5rem;
+            border-radius: 50px;
+            background: #eae1e1;
+            box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .hamburger:hover{
+            border-radius: 50px;
+            background: #eae1e1;
+            box-shadow: inset 10px 10px 20px #bbb4b4,inset -10px -10px 20px #ffffff;
+        }
+
+        .toggleMenu{
+            display: flex;
+            position: fixed;
+            flex-direction: column-reverse;
+            z-index: 100;
+            background-color: transparent;
+            width:100vw;
+            height: 100vh;
+        }
+
+        .invert{
+            width: 100%;
+            height: 60%;
+            background-color: #eae1e1;
+            border-radius: 50px;
+            box-shadow: 0px -10px 50px 20px rgba(0, 0, 0, 0.3);
+            /* display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center; */
+        }
+
+        .responsive{
+            display: flex;
+            height: 60%;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            padding:1rem;
+        }
+
+        .responsive li{
+            width:50%;
+            text-align: center;
+        }
+        .close{
+            display:block;
+            text-align: center;
+            margin: 1rem auto;
+        }
     }
 </style>
