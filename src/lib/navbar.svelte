@@ -17,7 +17,6 @@
     //is not available, then it is sent to the client where the 
     //window object is available.
     if (typeof window !== "undefined") {
-        if(window.innerWidth<768){
         const navbar: any = document.getElementById('navbar');
         let lastScrollTop: any;
         window.addEventListener('scroll',function(){
@@ -30,7 +29,6 @@
             }
             lastScrollTop = scrollTop;
         });
-    }
     }
 </script>
 
