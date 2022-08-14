@@ -54,9 +54,10 @@
     }
 
     nav{
+        padding-top: 10rem;
         position: fixed;
         width:100vw;
-        background-color: #c8c8c8;
+        background-color: #eae1e1;
         top: 0;
         padding-bottom: 0.5rem;
         padding-top: 0.5rem;
