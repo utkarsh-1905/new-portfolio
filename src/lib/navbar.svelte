@@ -73,13 +73,12 @@
     }
 
     nav{
-        padding-top: 1rem;
+        padding-top: 1.5rem;
         position: fixed;
         width:100vw;
         background-color: #eae1e1;
         top: 0; 
         padding-bottom: 0.5rem;
-        padding-top: 0.5rem;
         user-select: none;
         transition: top 0.3s ease-in-out;
         /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
