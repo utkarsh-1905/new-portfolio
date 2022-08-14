@@ -4,27 +4,25 @@
 
 <div class="container">
     <h1>contact me !!</h1>
-    <form action="" method="post" class="contact">
+    <form action="https://api.web3forms.com/submit" method="post" class="contact">
+        <input type="hidden" name="access_key" value="d6a0ccc5-4cb8-4d11-8049-a220977183fc"/>
+        <input type="hidden" name="subject" value="Someone wants to contact me">
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
         <div class="space">
-            <label for="contact-name">enter your name</label>
-            <input type="text" id="contact-name" name="name" />
+            <label for="contact-name">name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Steve Wozniak" />
         </div>
         <div class="space">
-            <label for="contact-email">enter your email</label>
-            <input type="email" id="contact-email" name="email" />
+            <label for="contact-email">email</label>
+            <input type="email" id="contact-email" name="email" placeholder="steve@google.com"/>
         </div>
         <div class="space">
-            <label for="contact-query">query</label>
-            <select id="contact-query">
-                <option value="collaboration" selected>collaboration</option>
-                <option value="question">question</option>
-                <option value="internship/job">internship/job</option>
-                <option value="freelance">freelance</option>
-            </select>
+            <label for="contact-subject">subject</label>
+            <input type="text" id="contact-subject" name="subject" placeholder="I want to know about..."/>
         </div>
         <div class="space">
-            <label for="contact-message">enter your message</label>
-            <textarea id="contact-message" rows="10" cols="20" name="message"></textarea>
+            <label for="contact-message">message</label>
+            <textarea id="contact-message" rows="10" cols="20" name="message" placeholder="hey utkarsh, ..."></textarea>
         </div>
         <input type="submit" class="submit" value="submit">
     </form>
@@ -54,7 +52,7 @@
         width:100%;
         margin-top: 2rem;
     }
-    input,textarea,select{
+    input,textarea{
         border:none;
         border-radius: 15px;
         margin: 1rem;
@@ -80,7 +78,7 @@
     box-shadow: inset 10px 10px 10px #beb6b6,inset -10px -10px 10px #ffffff; 
     }
 
-    input:focus,textarea:focus,select:focus{
+    input:focus,textarea:focus{
         outline: none;
     }
 
