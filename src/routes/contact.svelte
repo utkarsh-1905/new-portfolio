@@ -1,9 +1,5 @@
-<script>
-    export const prerender = true;
-</script>
-
 <div class="container">
-    <h1>contact me !!</h1>
+    <h1>contact me</h1>
     <form action="https://api.web3forms.com/submit" method="post" class="contact">
         <input type="hidden" name="access_key" value="d6a0ccc5-4cb8-4d11-8049-a220977183fc"/>
         <input type="hidden" name="subject" value="Someone wants to contact me">
@@ -41,7 +37,7 @@
     h1{
         padding: 1rem;
         letter-spacing: 5px;
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
     .contact{
         display: flex;

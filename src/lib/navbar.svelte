@@ -1,6 +1,7 @@
+
 <script lang="ts">
     function openDrawer(){
-        const drawer: any = document.querySelector('.invert');
+        const drawer:any = document.querySelector('.invert');
         if(window.innerWidth<400){
             drawer.style.height = "70%";
         }else{
@@ -11,9 +12,27 @@
         const drawer: any = document.querySelector('.invert');
         drawer.style.height = "0%"
     }
+    //we apply a check here because it is a ssr app which means
+    //the page is first compiled on the server where the window object
+    //is not available, then it is sent to the client where the 
+    //window object is available.
+    if (typeof window !== "undefined") {
+        const navbar: any = document.getElementById('navbar');
+        let lastScrollTop: any;
+        window.addEventListener('scroll',function(){
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if(scrollTop > lastScrollTop){
+                navbar.style.top='-80px';
+            }
+            else{
+                navbar.style.top='0';
+            }
+            lastScrollTop = scrollTop;
+        });
+    }
 </script>
 
-<nav>
+<nav id="navbar">
     <ul class="normal">
         <li><a href="/resume">resume</a></li>
         <li><a href="/projects">projects</a></li>
@@ -27,11 +46,11 @@
     <div class="invert">
         <img src="/shortDown.svg" on:click={closeDrawer} class="close" width="32px" alt="close"/>
         <ul class="responsive">
-            <li><a href="/resume">resume</a></li>
-            <li><a href="/projects">projects</a></li>
             <li><a href="/">home</a></li>
+            <li><a href="/projects">projects</a></li>
             <li><a href="/contact">contact</a></li>
             <li><a href="/blogs">blogs</a></li>
+            <li><a href="/resume">resume</a></li>
         </ul>
     </div>
 </div>
@@ -54,15 +73,16 @@
     }
 
     nav{
-        padding-top: 10rem;
+        padding-top: 1rem;
         position: fixed;
         width:100vw;
         background-color: #eae1e1;
-        top: 0;
+        top: 0; 
         padding-bottom: 0.5rem;
         padding-top: 0.5rem;
         user-select: none;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+        transition: top 0.3s ease-in-out;
+        /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
     }
 
     li{
@@ -70,11 +90,13 @@
         background: #eae1e1;
         box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
         padding: 0.5rem;
+        width:10%;
+        text-align: center;
     }
     li:hover{
         border-radius: 15px;
-        background: linear-gradient(145deg, #d3cbcb, #faf1f1);
-        box-shadow:  10px 10px 20px #a49e9e, -10px -10px 20px #ffffff;
+        background: #eae1e1;
+        box-shadow: inset 10px 10px 20px #d5cdcd,inset -10px -10px 20px #fff5f5;
     }
 
     .hamburger,.toggleMenu,.close{
@@ -91,8 +113,8 @@
             border-radius: 50px;
             background: #eae1e1;
             box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
-            margin-left: 1rem;
-            margin-top: 0.5rem;
+            margin-left: 1.5rem;
+            margin-top: 0.25rem;
         }
 
         .hamburger:hover,.close:hover{
@@ -145,4 +167,11 @@
             box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
         }
     }
+
+    @media screen and (max-width:1024px){
+        li{
+            width:auto;
+        }
+    }
+
 </style>

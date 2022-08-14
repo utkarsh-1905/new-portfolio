@@ -33,7 +33,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width:90%;
+        width:87.5%;
         margin-bottom: 1rem;
     }
     .social-icon{
@@ -64,6 +64,23 @@
         }
         .cpy{
             width: 50%;
+        }
+    }
+
+    @media screen and (max-width:390px){
+        .socials{
+            width:95%;
+        }
+    }
+
+    @media screen and (max-width:350px){
+        .cpy{
+            display: none;
+        }
+
+        .socials{
+            flex-direction: row;
+            justify-content: center;
         }
     }
 </style>
