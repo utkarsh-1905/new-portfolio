@@ -1,10 +1,12 @@
-<ul>
-    <li><a href="/resume">resume</a></li>
-    <li><a href="/projects">projects</a></li>
-    <li><a href="/">home</a></li>
-    <li><a href="/contact">contact</a></li>
-    <li><a href="/blogs">blogs</a></li>
-</ul>
+<nav>
+    <ul>
+        <li><a href="/resume">resume</a></li>
+        <li><a href="/projects">projects</a></li>
+        <li><a href="/">home</a></li>
+        <li><a href="/contact">contact</a></li>
+        <li><a href="/blogs">blogs</a></li>
+    </ul>
+</nav>
 
 <style>
     ul{
@@ -23,11 +25,26 @@
         font-size: large;
     }
 
-    li{
-        border-bottom: 5px solid transparent;
+    nav{
+        position: fixed;
+        width:100vw;
+        background-color: #c8c8c8;
+        top: 0;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        user-select: none;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     }
 
+    li{
+        border-radius: 15px;
+        background: #eae1e1;
+        box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
+        padding: 0.5rem;
+    }
     li:hover{
-        border-bottom: 5px solid #39ff14;
+        border-radius: 15px;
+        background: linear-gradient(145deg, #d3cbcb, #faf1f1);
+        box-shadow:  10px 10px 20px #a49e9e, -10px -10px 20px #ffffff;
     }
 </style>

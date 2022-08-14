@@ -8,7 +8,7 @@
 <Footer />
 <style>
     main {
-        width: 100vw;
-        min-width: 100vh;
+        width: 80vw;
+        margin: 5rem auto;
     }
 </style>

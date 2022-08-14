@@ -1,26 +1,19 @@
 <div class="container">
-    <div class="left">
-        <a href="https://github.com/utkarsh-1905" target="_blank">github</a>
-    </div>
-    <div class="right">
-        <img class="blob1" src="/blob1.svg" alt="blob"/>
-    </div>
+    <div class="heroText">hello people</div>
 </div>
 
 <style>
-    a{
-        text-decoration: none;
+    .heroText{
+        font-weight: 900;
+        font-size: xx-large;
     }
     .container{
+        margin-top:2rem;
         width:100%;
-        min-height: 100%;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-    }
-    .blob1{
-        width: 100%;
-        height: 100%;
+        border: 1px solid black;
     }
 </style>

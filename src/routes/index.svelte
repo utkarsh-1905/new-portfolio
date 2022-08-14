@@ -8,7 +8,7 @@
 
 <style>
 .container{
-    width:80vw;
+    width:100%;
     margin: 0 auto;
 }
 </style>
