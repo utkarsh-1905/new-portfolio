@@ -1,6 +1,6 @@
 <div class="container">
     <div class="left">
-        <button>Github</button>
+        <a href="https://github.com/utkarsh-1905" target="_blank">github</a>
     </div>
     <div class="right">
         <img class="blob1" src="/blob1.svg" alt="blob"/>
@@ -8,6 +8,9 @@
 </div>
 
 <style>
+    a{
+        text-decoration: none;
+    }
     .container{
         width:100%;
         min-height: 100%;

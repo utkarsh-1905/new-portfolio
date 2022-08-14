@@ -8,9 +8,9 @@
 <Navbar />
 
 <style>
-    h3{
+    /* h3{
         text-align: center;
         color: white;
         margin: 10px auto
-    }
+    } */
 </style>

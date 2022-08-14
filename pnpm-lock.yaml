@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@sveltejs/adapter-auto': next
+  '@sveltejs/adapter-node': 1.0.0-next.86
   '@sveltejs/kit': next
   '@typescript-eslint/eslint-plugin': ^5.27.0
   '@typescript-eslint/parser': ^5.27.0
@@ -19,6 +20,7 @@ specifiers:
   vite: ^3.0.0
 
 dependencies:
+  '@sveltejs/adapter-node': 1.0.0-next.86
   axios: 0.27.2
 
 devDependencies:
@@ -183,6 +185,10 @@ packages:
       set-cookie-parser: 2.5.1
       tiny-glob: 0.2.9
     dev: true
+
+  /@sveltejs/adapter-node/1.0.0-next.86:
+    resolution: {integrity: sha512-VfKcFukVEPoAdm8tVGkFLyDDMZe+9HLFW7X/9Ch/UrSCHo3/HyOfYt/slmh+sjGXYjIBAtTjacrIfcMdYh744g==}
+    dev: false
 
   /@sveltejs/adapter-vercel/1.0.0-next.66:
     resolution: {integrity: sha512-s3Hcxu9nCG/rR3C3cFbdQGjTa5W4K2kRcc6S5Xefx7itbrw+4v3KpO8ZPB6qM55XDwVxuG7260NMHVI6MUGmSA==}
