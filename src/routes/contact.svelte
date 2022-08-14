@@ -92,4 +92,29 @@
         margin-bottom: 1rem;
         width: 100%;
     }
+
+    @media screen and (max-width:480px){
+        h1{
+            font-size: xx-large !important;
+        }
+
+        .space{
+            flex-direction: column;
+        }
+
+        input,textarea{
+            width: 75%;
+        }
+    }
+
+    @media screen and (max-width:380px){
+        h1{
+            font-size: x-large !important;
+        }
+    }
+    @media screen and (max-width:320px){
+        h1{
+            font-size: large !important;
+        }
+    }
 </style>

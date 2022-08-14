@@ -2,7 +2,7 @@
 <script lang="ts">
     function openDrawer(){
         const drawer:any = document.querySelector('.invert');
-        if(window.innerWidth<400){
+        if(typeof window !== "undefined" && window.innerWidth<400){
             drawer.style.height = "70%";
         }else{
             drawer.style.height = "60%"
@@ -17,6 +17,7 @@
     //is not available, then it is sent to the client where the 
     //window object is available.
     if (typeof window !== "undefined") {
+        if(window.innerWidth<768){
         const navbar: any = document.getElementById('navbar');
         let lastScrollTop: any;
         window.addEventListener('scroll',function(){
@@ -29,6 +30,7 @@
             }
             lastScrollTop = scrollTop;
         });
+    }
     }
 </script>
 
