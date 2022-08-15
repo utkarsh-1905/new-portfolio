@@ -41,17 +41,17 @@
         text-decoration: none;
         padding: 0.5rem;
         border-radius: 50px;
-        background: #ff5500;
-        box-shadow:  10px 10px 10px #bf4000,-10px -10px 10px #ff6a00;
+        background: var(--dark-bg);
+        box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261;
     }
 
     .social-icon:hover{
         border-radius: 50px;
-        background: #ff5500;
-        box-shadow: inset 10px 10px 10px #bf4000,inset -10px -10px 10px #ff6a00;
+        background: var(--dark-bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261;
     }
 
-    .sitemap{
+    .sitemap,span{
         color: #c8c8c8;
     }
 

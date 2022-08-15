@@ -68,7 +68,7 @@
     }
     a{
         text-decoration: none;
-        color: #ff5500;
+        color: var(--light-font);
         font-size: large;
     }
 
@@ -76,7 +76,7 @@
         padding-top: 1.5rem;
         position: fixed;
         width:100vw;
-        background-color: #eae1e1;
+        background-color: var(--dark-bg);
         top: 0; 
         padding-bottom: 0.5rem;
         user-select: none;
@@ -86,16 +86,16 @@
 
     li{
         border-radius: 15px;
-        background: #eae1e1;
-        box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
+        background: var(--dark-bg);
+        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
         padding: 0.5rem;
         width:10%;
         text-align: center;
     }
     li:hover{
         border-radius: 15px;
-        background: #eae1e1;
-        box-shadow: inset 10px 10px 20px #d5cdcd,inset -10px -10px 20px #fff5f5;
+        background: var(--dark-bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
     }
 
     .hamburger,.toggleMenu,.close{
@@ -110,16 +110,16 @@
             display: block;
             padding: 0.5rem;
             border-radius: 50px;
-            background: #eae1e1;
-            box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
+            background: var(--dark-bg);
+            box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
             margin-left: 1.5rem;
             margin-top: 0.25rem;
         }
 
         .hamburger:hover,.close:hover{
             border-radius: 50px;
-            background: #eae1e1;
-            box-shadow: inset 10px 10px 20px #bbb4b4,inset -10px -10px 20px #ffffff;
+            background: var(--dark-bg);
+            box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
         }
 
         .toggleMenu{
@@ -135,7 +135,7 @@
         .invert{
             width: 100%;
             height: 0%;
-            background-color: #eae1e1;
+            background-color: var(--dark-bg);
             border-radius: 50px;
             box-shadow: 0px -10px 50px 20px rgba(0, 0, 0, 0.3);
             transition-property: height;
@@ -162,8 +162,8 @@
             text-align: center;
             margin: 1rem auto;
             border-radius: 50px;
-            background: #eae1e1;
-            box-shadow:  10px 10px 20px #a49e9e,-10px -10px 20px #ffffff;
+            background: var(--dark-bg);
+            box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
         }
     }
 

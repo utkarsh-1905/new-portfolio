@@ -50,28 +50,30 @@
     }
     input,textarea{
         border:none;
-        border-radius: 15px;
         margin: 1rem;
         width:50%;  
         padding: 0.75rem;
-        background: #eae1e1;
-        box-shadow:  10px 10px 10px #beb6b6, -10px -10px 10px #ffffff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 15px;
+        background: var(--dark-bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
     }
 
     .submit{
-    border-radius: 15px;
-    background: #eae1e1;
-    box-shadow:  10px 10px 10px #beb6b6, -10px -10px 10px #ffffff;
-    color: #ff5500;
-    font-size: large;
-    cursor: pointer;
-    margin-top: 5rem;
+        border-radius: 15px;
+        background: var(--dark-bg);
+        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+        color: var(--light-font);
+        font-size: large;
+        cursor: pointer;
+        margin-top: 5rem;
     }
 
     .submit:hover{
-    border-radius: 15px;
-    background: #eae1e1;
-    box-shadow: inset 10px 10px 10px #beb6b6,inset -10px -10px 10px #ffffff; 
+        border-radius: 15px;
+        background: var(--dark-bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
     }
 
     input:focus,textarea:focus{
@@ -79,7 +81,7 @@
     }
 
     label{
-        color: #ff5500;
+        color: var(--light-font);
         font-size: large;   
     }
 
