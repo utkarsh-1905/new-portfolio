@@ -1,35 +1,52 @@
-
 <script lang="ts">
+    import { onMount } from 'svelte';
+    let drawerStatus: boolean = false;
+    function checkDrawer(){
+        if(!drawerStatus){
+            openDrawer();
+        } else {
+            closeDrawer();
+        }
+    }
+
     function openDrawer(){
         const drawer:any = document.querySelector('.invert');
+        const toggleMenu: any = document.querySelector('.toggleMenu');
+        toggleMenu.style.zIndex = '10';
         if(typeof window !== "undefined" && window.innerWidth<400){
             drawer.style.height = "70%";
         }else{
             drawer.style.height = "60%"
         }
+        drawerStatus = true;
     }
     function closeDrawer(){
+        const toggleMenu: any = document.querySelector('.toggleMenu');
+        toggleMenu.style.zIndex = '-10';
         const drawer: any = document.querySelector('.invert');
         drawer.style.height = "0%"
+        drawerStatus = false;
     }
     //we apply a check here because it is a ssr app which means
     //the page is first compiled on the server where the window object
     //is not available, then it is sent to the client where the 
     //window object is available.
-    if (typeof window !== "undefined") {
-        const navbar: any = document.getElementById('navbar');
-        let lastScrollTop: any;
-        window.addEventListener('scroll',function(){
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if(scrollTop > lastScrollTop){
-                navbar.style.top='-80px';
-            }
-            else{
-                navbar.style.top='0';
-            }
-            lastScrollTop = scrollTop;
-        });
-    }
+    onMount(()=>{
+        if (typeof window !== "undefined") {
+            const navbar: any = document.getElementById('navbar');
+            let lastScrollTop: any;
+            window.addEventListener('scroll',function(){
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if(scrollTop > lastScrollTop){
+                    navbar.style.top='-80px';
+                }
+                else{
+                    navbar.style.top='0';
+                }
+                lastScrollTop = scrollTop;
+            });
+        }
+    })
 </script>
 
 <nav id="navbar">
@@ -40,7 +57,7 @@
         <li><a href="/contact">contact</a></li>
         <li><a href="/blogs">blogs</a></li>
     </ul>
-    <img class="hamburger" src="/hamburger.svg" on:click={openDrawer} width="32px" alt="hamburger menu"/>
+    <img class="hamburger" src="/hamburger.svg" on:click={checkDrawer} width="32px" alt="hamburger menu"/>
 </nav>
 <div class="toggleMenu">
     <div class="invert">
@@ -68,15 +85,18 @@
     }
     a{
         text-decoration: none;
-        color: var(--light-font);
+        color: var(--font);
         font-size: large;
+        display: block;
+        width:100%;
+        height: 100%;
     }
 
     nav{
         padding-top: 1.5rem;
         position: fixed;
         width:100vw;
-        background-color: var(--dark-bg);
+        background-color: var(--bg);
         top: 0; 
         padding-bottom: 0.5rem;
         user-select: none;
@@ -86,17 +106,23 @@
 
     li{
         border-radius: 15px;
-        background: var(--dark-bg);
-        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+        background: var(--bg);
+        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
         padding: 0.5rem;
         width:10%;
         text-align: center;
     }
     li:hover{
         border-radius: 15px;
-        background: var(--dark-bg);
-        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+        background: var(--bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
     }
+    /* to be applied to nav link of the current page */
+    /* .selected{
+        border-radius: 15px;
+        background: var(--bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
+    } */
 
     .hamburger,.toggleMenu,.close{
         display: none;
@@ -110,32 +136,32 @@
             display: block;
             padding: 0.5rem;
             border-radius: 50px;
-            background: var(--dark-bg);
-            box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+            background: var(--bg);
+            box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
             margin-left: 1.5rem;
             margin-top: 0.25rem;
         }
 
-        .hamburger:hover,.close:hover{
+        .hamburger:active,.close:active{
             border-radius: 50px;
-            background: var(--dark-bg);
-            box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+            background: var(--bg);
+            box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
         }
 
         .toggleMenu{
             display: flex;
             position: fixed;
             flex-direction: column-reverse;
-            z-index: 100;
             background-color: transparent;
             width:100vw;
+            z-index: -1;
             height: 100vh;
         }
 
         .invert{
             width: 100%;
             height: 0%;
-            background-color: var(--dark-bg);
+            background-color: var(--bg);
             border-radius: 50px;
             box-shadow: 0px -10px 50px 20px rgba(0, 0, 0, 0.3);
             transition-property: height;
@@ -162,8 +188,8 @@
             text-align: center;
             margin: 1rem auto;
             border-radius: 50px;
-            background: var(--dark-bg);
-            box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+            background: var(--bg);
+            box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
         }
     }
 

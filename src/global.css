@@ -4,20 +4,17 @@
 :root{
     --neumorph-blur-radius: 20px;
     --neumorph-distance: 5px;
-    --dark-bg: #c0c0c0;
-    --light-font: #a36a4f ;
-    --light-accent: #ffd772;
-    --dark-neumorph-doffset: #949494;
-    --dark-neumorph-loffset: #ececec;
-    /* --dark-bg: #18181b;
-    --dark-neumorph-doffset: #121215;
-    --dark-neumorph-loffset: #1e1e21; */
+    --bg: #c0c0c0;
+    --font: #a36a4f ;
+    --accent: #ffd772;
+    --neumorph-doffset: #949494;
+    --neumorph-loffset: #ececec;
 }
 
 body{
-    background-color: var(--dark-bg);
+    background-color: var(--bg);
     font-family: 'Cascadia Code', sans-serif;
-    color:var(--light-font);
+    color:var(--font);
     width: 100vw;
     overflow-x: hidden;
     margin: 0;

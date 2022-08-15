@@ -41,13 +41,13 @@
         text-decoration: none;
         padding: 0.5rem;
         border-radius: 50px;
-        background: var(--dark-bg);
+        background: var(--bg);
         box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261;
     }
 
     .social-icon:hover{
         border-radius: 50px;
-        background: var(--dark-bg);
+        background: var(--bg);
         box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261;
     }
 

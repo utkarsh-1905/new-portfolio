@@ -6,19 +6,19 @@
         <input type="hidden" name="redirect" value="https://www.utkarsh.ninja/">
         <div class="space">
             <label for="contact-name">name</label>
-            <input type="text" id="contact-name" name="name" placeholder="Steve Wozniak" />
+            <input type="text" required id="contact-name" name="name" placeholder="Steve Wozniak" />
         </div>
         <div class="space">
             <label for="contact-email">email</label>
-            <input type="email" id="contact-email" name="email" placeholder="steve@google.com"/>
+            <input type="email" required id="contact-email" name="email" placeholder="steve@google.com"/>
         </div>
         <div class="space">
             <label for="contact-subject">subject</label>
-            <input type="text" id="contact-subject" name="subject" placeholder="I want to know about..."/>
+            <input type="text" required id="contact-subject" name="subject" placeholder="I want to know about..."/>
         </div>
         <div class="space">
             <label for="contact-message">message</label>
-            <textarea id="contact-message" rows="10" cols="20" name="message" placeholder="hey utkarsh, ..."></textarea>
+            <textarea id="contact-message" required rows="10" cols="20" name="message" placeholder="hey utkarsh, ..."></textarea>
         </div>
         <input type="submit" class="submit" value="submit">
     </form>
@@ -56,14 +56,14 @@
         padding-top: 1rem;
         padding-bottom: 1rem;
         border-radius: 15px;
-        background: var(--dark-bg);
-        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+        background: var(--bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
     }
 
     .submit{
         border-radius: 15px;
-        background: var(--dark-bg);
-        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+        background: var(--bg);
+        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
         color: var(--light-font);
         font-size: large;
         cursor: pointer;
@@ -72,12 +72,16 @@
 
     .submit:hover{
         border-radius: 15px;
-        background: var(--dark-bg);
-        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--dark-neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--dark-neumorph-loffset);
+        background: var(--bg);
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
     }
 
     input:focus,textarea:focus{
         outline: none;
+    }
+
+    input[type="text"],input[type="email"],textarea{
+        color: var(--light-font);
     }
 
     label{

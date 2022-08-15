@@ -1,14 +1,24 @@
 <script>
     import "../global.css";
-    import Header from "$lib/header.svelte"
+    import Navbar from "$lib/navbar.svelte"
     import Footer from "$lib/footer.svelte"
+    import Theme from "$lib/theme.svelte"
 </script>
-<Header />
-<main><slot></slot></main>
+
+<header>
+    <Navbar />
+    <Theme />
+</header>
+
+<main>
+    <slot></slot>
+</main>
+
 <Footer />
 <style>
     main {
         width: 80vw;
-        margin: 5rem auto;
+        margin: 0 auto;
+        margin-top: 5rem;
     }
 </style>
