@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import Theme from "$lib/theme.svelte"
     let drawerStatus: boolean = false;
     function checkDrawer(){
         if(!drawerStatus){
@@ -51,13 +52,16 @@
 
 <nav id="navbar">
     <ul class="normal">
-        <li><a href="/resume">resume</a></li>
         <li><a href="/projects">projects</a></li>
         <li><a href="/">home</a></li>
         <li><a href="/contact">contact</a></li>
         <li><a href="/blogs">blogs</a></li>
+        <Theme />
     </ul>
     <img class="hamburger" src="/hamburger.svg" on:click={checkDrawer} width="32px" alt="hamburger menu"/>
+    <div class="themeChangeMobile">
+        <Theme />
+    </div>
 </nav>
 <div class="toggleMenu">
     <div class="invert">
@@ -67,7 +71,6 @@
             <li><a href="/projects">projects</a></li>
             <li><a href="/contact">contact</a></li>
             <li><a href="/blogs">blogs</a></li>
-            <li><a href="/resume">resume</a></li>
         </ul>
     </div>
 </div>
@@ -124,13 +127,20 @@
         box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
     } */
 
-    .hamburger,.toggleMenu,.close{
+    .hamburger,.toggleMenu,.close,.themeChangeMobile{
         display: none;
     }
 
     @media screen and (max-width:768px){
         .normal{
             display: none;
+        }
+
+        nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center ;
         }
         .hamburger{
             display: block;
@@ -142,6 +152,10 @@
             margin-top: 0.25rem;
         }
 
+        .themeChangeMobile{
+            display: block;
+            margin-right: 2rem;
+        }
         .hamburger:active,.close:active{
             border-radius: 50px;
             background: var(--bg);

@@ -2,12 +2,10 @@
     import "../global.css";
     import Navbar from "$lib/navbar.svelte"
     import Footer from "$lib/footer.svelte"
-    import Theme from "$lib/theme.svelte"
 </script>
 
 <header>
     <Navbar />
-    <Theme />
 </header>
 
 <main>
