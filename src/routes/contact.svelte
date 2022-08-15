@@ -1,3 +1,7 @@
+<script>
+    export const prerender = true;
+</script>
+
 <div class="container">
     <h1>contact me</h1>
     <form action="https://api.web3forms.com/submit" method="post" class="contact">
