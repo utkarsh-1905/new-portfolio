@@ -27,6 +27,7 @@
         flex-direction: column-reverse;
         justify-content: space-between;
         align-items: center;
+        user-select: none;
     }
     .socials{
         display: flex;
@@ -48,7 +49,7 @@
     .social-icon:hover{
         border-radius: 50px;
         background: var(--bg);
-        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261;
+        box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
     }
 
     .sitemap,span{

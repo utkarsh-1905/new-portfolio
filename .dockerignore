@@ -1,5 +1,4 @@
 node_modules
 .svelte-kit
 .svelte-kit-cache
-pnpm-lock.yaml
 .npmrc

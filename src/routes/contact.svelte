@@ -10,7 +10,7 @@
         <input type="hidden" name="redirect" value="https://www.utkarsh.ninja/">
         <div class="space">
             <label for="contact-name">name</label>
-            <input type="text" required id="contact-name" name="name" placeholder="Steve Wozniak" />
+            <input type="text" required id="contact-name" name="name" placeholder="steve wozniak" />
         </div>
         <div class="space">
             <label for="contact-email">email</label>
@@ -18,7 +18,7 @@
         </div>
         <div class="space">
             <label for="contact-subject">subject</label>
-            <input type="text" required id="contact-subject" name="subject" placeholder="I want to know about..."/>
+            <input type="text" required id="contact-subject" name="subject" placeholder="i want to know about..."/>
         </div>
         <div class="space">
             <label for="contact-message">message</label>

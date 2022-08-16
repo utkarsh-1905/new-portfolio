@@ -53,6 +53,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        user-select: none;
         /* margin-top: 6rem; */
     }
     

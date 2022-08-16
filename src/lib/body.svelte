@@ -8,12 +8,11 @@
         font-size: xx-large;
     }
     .container{
-        margin-top:5rem;
+        margin-top:6rem;
         width:100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid black;
     }
 </style>

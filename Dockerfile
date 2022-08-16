@@ -1,22 +1,30 @@
-FROM node:18-alpine AS build
+FROM node:18 AS build
+
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
 WORKDIR /app
 
 COPY package.json .
+COPY pnpm-lock.yaml .
 
-RUN npm install
+RUN pnpm install
 
 COPY . .
 
-RUN npm run build
+RUN pnpm run build
 
 EXPOSE 3000
 
-CMD ["node", "build/index.js"]
-# FROM node:18-alpine
 
-# COPY --from=build /app/build /build
+FROM node:18-alpine3.16
 
-# EXPOSE 3000
+USER node:node
 
-# CMD ["node", "build/index.js"]
+COPY --from=build --chown=node:node /app/build/ ./build
+COPY --from=build --chown=node:node /app/package.json ./package.json
+COPY --from=build --chown=node:node /app/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY --from=build --chown=node:node /app/node_modules ./node_modules
+
+EXPOSE 3000
+
+CMD ["node", "build"]

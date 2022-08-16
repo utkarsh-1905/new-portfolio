@@ -52,7 +52,7 @@
 
 <nav id="navbar">
     <ul class="normal">
-        <li><a href="/projects">projects</a></li>
+        <li><a href="/experience">experience</a></li>
         <li><a href="/">home</a></li>
         <li><a href="/contact">contact</a></li>
         <li><a href="/blogs">blogs</a></li>
@@ -68,7 +68,7 @@
         <img src="/shortDown.svg" on:click={closeDrawer} class="close" width="32px" alt="close"/>
         <ul class="responsive">
             <li><a href="/">home</a></li>
-            <li><a href="/projects">projects</a></li>
+            <li><a href="/experience">experience</a></li>
             <li><a href="/contact">contact</a></li>
             <li><a href="/blogs">blogs</a></li>
         </ul>
@@ -169,6 +169,7 @@
             background-color: transparent;
             width:100vw;
             z-index: -1;
+            user-select: none;
             height: 100vh;
         }
 
