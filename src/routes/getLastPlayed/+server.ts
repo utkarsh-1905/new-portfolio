@@ -11,18 +11,30 @@ export const GET: RequestHandler = async () => {
     })
     console.log(response)
     if(response.status === 200) {
-        return ({
-            status: response.status,
-            body: response.data,
+        // Suggestion (check for correctness before using):
+        // return new Response(response.data, {
+        //     status: response.status,
+        //     headers: {
+        //         'Content-Type': 'application/json;charset=utf-8',
+        //     }
+        // });
+        // return ({
+        //     status: response.status,
+        //     body: response.data,
+        //     headers:{
+        //         'Content-Type': 'application/json;charset=utf-8',
+        //     }
+        // })
+        return new Response(JSON.stringify(response.data), {
             headers:{
                 'Content-Type': 'application/json;charset=utf-8',
-            }
+            },
+            status: response.status
         })
     }else{
-        return ({
+        return new Response("I am not listening to music right now!!", {
             status: response.status,
-            body: "I am not listening to music right now!!",
-            headers:{
+            headers: {
                 'Content-Type': 'application/json;charset=utf-8',
             }
         })
