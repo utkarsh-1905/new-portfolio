@@ -53,8 +53,8 @@
 <nav id="navbar">
     <ul class="normal">
         <li><a href="/experience">experience</a></li>
-        <li><a href="/">home</a></li>
         <li><a href="/contact">contact</a></li>
+        <li><a href="/">home</a></li>
         <li><a href="/blogs">blogs</a></li>
         <Theme />
     </ul>

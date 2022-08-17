@@ -2,3 +2,4 @@ node_modules
 .svelte-kit
 .svelte-kit-cache
 .npmrc
+Caddyfile
