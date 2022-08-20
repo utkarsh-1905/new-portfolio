@@ -1,7 +1,7 @@
 <script lang="ts">
     import BlogCard from "$lib/blog_card.svelte";
     import { Swiper, SwiperSlide } from "swiper/svelte"
-    import { Keyboard, Autoplay } from 'swiper';
+    import { Keyboard, Pagination, Virtual } from 'swiper';
     import "swiper/css";
     import "swiper/css/bundle"
     export let data: any;
@@ -15,11 +15,12 @@
         </div>
         <div class="medium">
         <Swiper
-            modules={[Keyboard, Autoplay]}
+            modules={[Keyboard, Pagination]}
             keyboard={true}
             loop={true}
             spaceBetween={40}
             slidesPerView={3}
+            pagination={{ clickable: true }}
             breakpoints={
                 {
                     280:{
@@ -35,6 +36,7 @@
                     },
                     1048:{
                         spaceBetween: 50,
+                        slidesPerView:3
                     }
                 }
             }
@@ -49,27 +51,26 @@
         </div>
         <div class="devto">
             <Swiper
-            modules={[Keyboard, Autoplay]}
+            modules={[Keyboard, Pagination]}
             keyboard={true}
             loop={true}
+            slidesPerView="auto"
             spaceBetween={40}
-            slidesPerView={3}
+            pagination={{ clickable: true }}
             breakpoints={
                 {
                     280:{
                         slidesPerView: 1,
                     },
                     586:{
-                        slidesPerView: 2,
+                        slidesPerView: "auto",
                         spaceBetween: 20,
                     },
                     786:{
                         spaceBetween: 20,
-                        slidesPerView: 3,
                     },
                     1048:{
                         spaceBetween: 50,
-                        slidesPerView:1
                     }
                 }
             }
@@ -79,12 +80,6 @@
     {/each}
         </Swiper>
         </div>
-        <!-- <div class="info">
-            <a href="blog.utkarsh.ninja" target="blank">hashnode</a>
-        </div>
-        <div class="hashnode">
-            <BlogCard />
-        </div> -->
     </div>
 </div>
 

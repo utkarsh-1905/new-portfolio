@@ -46,3 +46,7 @@ a,a:active,a:focus,a:hover{
     justify-content: center;
     align-items: center;
 }
+
+.swiper-pagination-bullet-active{
+    background-color: var(--font) !important;
+}

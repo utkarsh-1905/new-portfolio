@@ -178,7 +178,7 @@
             width: 100%;
             height: 0%;
             background-color: var(--bg);
-            border-radius: 50px;
+            border-radius: 50px 50px 0 0;
             box-shadow: 0px -10px 50px 20px rgba(0, 0, 0, 0.3);
             transition-property: height;
             transition-duration: 0.3s;
