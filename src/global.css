@@ -16,8 +16,11 @@ body{
     font-family: 'Cascadia Code', sans-serif;
     color:var(--font);
     width: 100vw;
+    min-height: 100vh;
     overflow-x: hidden;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 h1,h2,h3,h4,h5,h6,p,a,ul,li,td,th,tr,table,div,span,input,button,textarea,button{
@@ -30,4 +33,16 @@ a,a:active,a:focus,a:hover{
     text-decoration: none;
     outline: none;
     color: var(--font)
+}
+
+.swiper{
+    height: 100%;
+}
+
+.swiper-slide{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

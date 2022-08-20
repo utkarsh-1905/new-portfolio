@@ -67,10 +67,10 @@
     <div class="invert">
         <img src="/shortDown.svg" on:click={closeDrawer} class="close" width="32px" alt="close"/>
         <ul class="responsive">
-            <li><a href="/">home</a></li>
-            <li><a href="/experience">experience</a></li>
-            <li><a href="/contact">contact</a></li>
-            <li><a href="/blogs">blogs</a></li>
+            <li><a href="/" on:click={closeDrawer}>home</a></li>
+            <li><a href="/experience" on:click={closeDrawer}>experience</a></li>
+            <li><a href="/contact" on:click={closeDrawer}>contact</a></li>
+            <li><a href="/blogs" on:click={closeDrawer}>blogs</a></li>
         </ul>
     </div>
 </div>
@@ -104,6 +104,7 @@
         padding-bottom: 0.5rem;
         user-select: none;
         transition: top 0.3s ease-in-out;
+        z-index: 100;
         /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
     }
 

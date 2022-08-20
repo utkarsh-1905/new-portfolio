@@ -1,7 +1,7 @@
 <script>
-    // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
     export const prerender = true;
+    import {loading} from "$lib/loading"
+    $loading = false
 </script>
 
 <div class="container">

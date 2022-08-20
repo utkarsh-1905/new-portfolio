@@ -28,6 +28,7 @@
         justify-content: space-between;
         align-items: center;
         user-select: none;
+        margin-top: auto;
     }
     .socials{
         display: flex;
