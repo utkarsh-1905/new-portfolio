@@ -34,15 +34,15 @@
     //window object is available.
     onMount(()=>{
         if (typeof window !== "undefined") {
-            const navbar: any = document.getElementById('navbar');
+            const navbar: HTMLElement | null = document.getElementById('navbar');
             let lastScrollTop: any;
             window.addEventListener('scroll',function(){
-                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if(scrollTop > lastScrollTop){
-                    navbar.style.top='-80px';
+                    navbar!.style.top='-80px';
                 }
                 else{
-                    navbar.style.top='0';
+                    navbar!.style.top='0';
                 }
                 lastScrollTop = scrollTop;
             });

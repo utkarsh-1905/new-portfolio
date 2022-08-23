@@ -1,7 +1,7 @@
 <script lang="ts">
     import BlogCard from "$lib/blog_card.svelte";
     import { Swiper, SwiperSlide } from "swiper/svelte"
-    import { Keyboard, Pagination, Virtual } from 'swiper';
+    import { Keyboard, Pagination} from 'swiper';
     import "swiper/css";
     import "swiper/css/bundle"
     export let data: any;
@@ -17,9 +17,8 @@
         <Swiper
             modules={[Keyboard, Pagination]}
             keyboard={true}
-            loop={true}
             spaceBetween={40}
-            slidesPerView={3}
+            slidesPerView={2}
             pagination={{ clickable: true }}
             breakpoints={
                 {
@@ -32,11 +31,10 @@
                     },
                     786:{
                         spaceBetween: 20,
-                        slidesPerView: 3,
+                        slidesPerView: "auto",
                     },
                     1048:{
                         spaceBetween: 50,
-                        slidesPerView:3
                     }
                 }
             }
@@ -53,7 +51,6 @@
             <Swiper
             modules={[Keyboard, Pagination]}
             keyboard={true}
-            loop={true}
             slidesPerView="auto"
             spaceBetween={40}
             pagination={{ clickable: true }}

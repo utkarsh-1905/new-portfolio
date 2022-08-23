@@ -13,8 +13,6 @@ COPY . .
 
 RUN pnpm run build
 
-EXPOSE 3000
-
 
 FROM node:18-alpine3.16
 
