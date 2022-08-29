@@ -1,4 +1,6 @@
-cd new_portfolio
+#!/bin/bash
+
+cd ./new_portfolio
 git pull
 docker stop portfolio
 docker rm portfolio
