@@ -142,6 +142,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center ;
+            transition: top 0.1s ease-out;
         }
         .hamburger{
             display: block;
@@ -181,7 +182,7 @@
             border-radius: 50px 50px 0 0;
             box-shadow: 0px -10px 50px 20px rgba(0, 0, 0, 0.3);
             transition-property: height;
-            transition-duration: 0.3s;
+            transition-duration: 0.2s;
             transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 

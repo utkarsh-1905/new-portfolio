@@ -47,6 +47,7 @@
         height: 60%;
         border-radius: 15px 15px 0 0;
         cursor: pointer;
+        filter: grayscale(15%);
     }
     
     small{
