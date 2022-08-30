@@ -33,24 +33,34 @@
     //is not available, then it is sent to the client where the 
     //window object is available.
     onMount(()=>{
-        if (typeof window !== "undefined") {
-            const navbar: HTMLElement | null = document.getElementById('navbar');
-            let lastScrollTop: any;
-            window.addEventListener('scroll',function(){
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if(scrollTop > lastScrollTop){
-                    navbar!.style.top='-80px';
-                }
-                else{
-                    navbar!.style.top='0';
-                }
-                lastScrollTop = scrollTop;
-            });
-        }
+        // if (typeof window !== "undefined") {
+        //     const navbar: HTMLElement | null = document.querySelector('.navbar');
+        //     // const navHeight: number | undefined = document.getElementById('navbar')?.offsetHeight;
+        //     // document.body.style.paddingTop = navHeight + "px";
+        //     let lastScrollTop: number;
+        //     window.addEventListener('scroll',function(){
+        //         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        //         // if(scrollTop > lastScrollTop){
+        //         //     navbar!.style.top='-80px';
+        //         // }
+        //         // else{
+        //         //     navbar!.style.top='0';
+        //         // }
+        //         // if(scrollTop > lastScrollTop) {
+        //         //     navbar?.classList.remove('scrolled-down');
+        //         //     navbar?.classList.add('scrolled-up');
+        //         // }
+        //         // else {
+        //         //     navbar?.classList.remove('scrolled-up');
+        //         //     navbar?.classList.add('scrolled-down');
+        //         // }
+        //         // lastScrollTop = scrollTop;
+        //     });
+        // }
     })
 </script>
 
-<nav id="navbar">
+<nav class="navbar scrolled-up">
     <ul class="normal">
         <li><a href="/experience">experience</a></li>
         <li><a href="/contact">contact</a></li>
@@ -96,17 +106,24 @@
     }
 
     nav{
-        padding-top: 1.5rem;
-        position: fixed;
+        margin-top: 1rem;
+        position: relative;
         width:100vw;
         background-color: var(--bg);
         top: 0; 
         padding-bottom: 0.5rem;
         user-select: none;
-        transition: top 0.3s ease-in-out;
+        /* transition: all 0.3s ease-in-out; */
         z-index: 100;
         /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
     }
+/* 
+    .scrolled-down{
+        transform:translateY(-100%) !important; transition: all 0.3s ease-in-out;
+    }
+    .scrolled-up{
+        transform:translateY(0) !important; transition: all 0.3s ease-in-out;
+    } */
 
     li{
         border-radius: 15px;
