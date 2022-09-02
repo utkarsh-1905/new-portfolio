@@ -1,10 +1,26 @@
 import { Octokit } from 'octokit';
+import { VITE_GITHUB_KEY } from '$env/static/private';
 
 const octokit = new Octokit({
-    auth: process.env.VITE_GITHUB_TOKEN,
+    auth: VITE_GITHUB_KEY,
+    timeZone:"Asia/Calcutta"
 })
 
-export const getPackages = async () => {
-    const { data } = await octokit.rest.users.getAuthenticated()
-   return data
+//dont use this
+export async function getUser(){
+    try{
+    const res = await octokit.rest.users.getAuthenticated();
+    return res
+}catch(e: any){
+    console.log(e)
+}
+}
+
+export async function getRepos(){
+    try{
+    const res = await octokit.request("GET /users/utkarsh-1905/repos");
+    return res
+    }catch(e){
+        console.log(e)
+    }
 }

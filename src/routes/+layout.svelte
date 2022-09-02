@@ -6,7 +6,7 @@
     import { navigating } from "$app/stores";
     import LoadingPage from "$lib/loadingPage.svelte";
 
-    $: $loading = !!$navigating;
+    $: $loading = !!$navigating; //loading pages
 </script>
 
 <svelte:head>
@@ -29,6 +29,6 @@
     main {
         width: 80vw;
         margin: 0 auto;
-        margin-top: 6rem;
+        margin-top: 1rem;
     }
 </style>
