@@ -7,22 +7,22 @@
             github:"https://github.com/utkarsh-1905/node-cli-project"
         },
         {
-            name:"CLI based chat app",
-            description:"A node cli client to create chat rooms and chat with other users in the terminal",
-            stack:["nodejs","javascript","socket.io"],
-            github:"https://github.com/utkarsh-1905/node-cli-project"
+            name:"Yelp Camp",
+            description:"Created a full-stack app to list various available campsites in a user-friendly way.",
+            stack:["nodejs","ejs","mongodb"],
+            github:"hhttps://github.com/utkarsh-1905/yelp-camp"
         },
         {
-            name:"CLI based chat app",
-            description:"A node cli client to create chat rooms and chat with other users in the terminal",
-            stack:["nodejs","javascript","socket.io"],
-            github:"https://github.com/utkarsh-1905/node-cli-project"
+            name:"GoChain",
+            description:"[working]A blockchain in golang with proof of stake consensus algorithm.",
+            stack:["golang","urfave/cli","PoS"],
+            github:"https://github.com/utkarsh-1905/go-chain"
         },
         {
-            name:"CLI based chat app",
-            description:"A node cli client to create chat rooms and chat with other users in the terminal",
-            stack:["nodejs","javascript","socket.io"],
-            github:"https://github.com/utkarsh-1905/node-cli-project"
+            name:"BEML Connect",
+            description:"Created a solution for transfering vitals of heavy BEML machines without internet to a secure cloud database.",
+            stack:["electron.js","azure","react-native"],
+            github:"https://github.com/utkarsh-1905/Makeathon-Submisson"
         },
     ]
 </script>
@@ -77,6 +77,7 @@
         border-radius: 15px;
         padding: 1rem;
         width: 40%;
+        /* min-height: 150px; */
         margin-top: 2rem;
     }
     .project-info p{

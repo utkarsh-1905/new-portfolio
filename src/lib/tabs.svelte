@@ -31,7 +31,7 @@
     .tab{
         cursor: pointer;
         padding: 0.5rem;
-        transition: all 0.3s ease-out;
+        transition: all 0.3s ease-in;
     }
     .selected{
         font-weight: 900;
