@@ -2,6 +2,7 @@
     import Tabs from "$lib/tabs.svelte"
     import Projects from "$lib/experiencePages/projects.svelte";
     import Github from "$lib/experiencePages/github.svelte";
+    import Resume from "$lib/experiencePages/resume.svelte";
     export let data: any;
     let active:string;
 </script>
@@ -25,9 +26,7 @@
             <p>work</p>
         </div>
     {:else if active === "resume"}
-        <div class="resume">
-            <p>resume</p>
-        </div>
+        <Resume />
     {/if}
 </div>
 
