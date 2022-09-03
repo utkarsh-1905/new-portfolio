@@ -74,6 +74,7 @@
         flex-direction: column;
         box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
         background: var(--bg);
+        border-radius: 15px;
         padding: 1rem;
         width: 40%;
         margin-top: 2rem;

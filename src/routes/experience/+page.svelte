@@ -1,11 +1,9 @@
 <script lang="ts">
     import Tabs from "$lib/tabs.svelte"
-    import { onMount } from "svelte";
     import Projects from "$lib/experiencePages/projects.svelte";
+    import Github from "$lib/experiencePages/github.svelte";
+    export let data: any;
     let active:string;
-    onMount(async ()=>{
-        console.log(active)
-    })
 </script>
 
 <div class="container">
@@ -21,9 +19,7 @@
     {:else if active === "projects"}
         <Projects />
     {:else if active === "github"}
-        <div class="github">
-            <p>github</p>
-        </div>
+        <Github bind:repo={data.repos}/>
     {:else if active === "work"}
         <div class="work">
             <p>work</p>

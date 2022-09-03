@@ -54,6 +54,7 @@
         justify-content: center;
         align-items: center;
         user-select: none;
+        cursor: pointer;
         /* margin-top: 6rem; */
     }
     
@@ -63,6 +64,7 @@
         width: 70px;
         height: 45px;
         border-radius: 50px;
+        cursor: pointer;
         box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
     }
 
