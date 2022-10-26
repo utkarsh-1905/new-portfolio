@@ -32,11 +32,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@octokit/core": "^4.1.0",
 		"@octokit/types": "^7.1.0",
 		"@sveltejs/adapter-cloudflare": "^1.0.0-next.39",
 		"@sveltejs/adapter-node": "1.0.0-next.86",
 		"axios": "^0.27.2",
-		"octokit": "^2.0.7",
 		"swiper": "^8.3.2"
 	}
 }

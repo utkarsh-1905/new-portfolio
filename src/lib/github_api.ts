@@ -1,4 +1,4 @@
-import { Octokit } from 'octokit';
+import { Octokit } from '@octokit/core';
 import { VITE_GITHUB_KEY } from '$env/static/private';
 
 const octokit = new Octokit({
@@ -7,14 +7,14 @@ const octokit = new Octokit({
 })
 
 //dont use this
-export async function getUser(){
-    try{
-    const res = await octokit.rest.users.getAuthenticated();
-    return res
-}catch(e: any){
-    console.log(e)
-}
-}
+// export async function getUser(){
+//     try{
+//     const res = await octokit.rest.users.getAuthenticated();
+//     return res
+// }catch(e: any){
+//     console.log(e)
+// }
+// }
 
 export async function getRepos(){
     try{
