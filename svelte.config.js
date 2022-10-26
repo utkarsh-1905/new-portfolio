@@ -11,7 +11,7 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			Plugin: [ESBuildNodePolyfillsPlugin()]
+			Plugin: [ESBuildNodePolyfillsPlugin]
 		})
 		// vite: { optimizeDeps: { include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'] } }
 	}
