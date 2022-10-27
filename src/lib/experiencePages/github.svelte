@@ -20,7 +20,7 @@
             {#each repo as data}   
                 <div class="row">
                     <div class="cl cl-number">{data.id}</div>
-                    <div class="cl cl-name"><a href={data.url} target="_blank" >{data.name} &#x2197;</a></div>
+                    <div class="cl cl-name"><a href={data.url} target="_blank" rel="noreferrer">{data.name} &#x2197;</a></div>
                     <div class="cl cl-lang">{data.language}</div>
                     <div class="cl cl-updated">{getUpdatedTime(data.updated_at)}</div>
                 </div>

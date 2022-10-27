@@ -4,9 +4,9 @@
             <span>&copy; 2022 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap">sitemap</a></span>
         </div>
         <div class="icons">
-            <a href="https://github.com/utkarsh-1905" target="_blank"><img class="social-icon" src="/github.svg" width="32px" alt="github"/></a>
-            <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" target="_blank"><img class="social-icon" src="/linkedin.svg" width="32px" alt="linkedin"/></a>
-            <a href="mailto:utripathi2002@gmail.com?subject=Hey%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you%20!!" target="_blank"><img class="social-icon" src="/mail.svg" width="32px" alt="email"/></a>
+            <a href="https://github.com/utkarsh-1905" target="_blank" rel="noreferrer"><img class="social-icon" src="/github.svg" width="32px" alt="github"/></a>
+            <a href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/" target="_blank" rel="noreferrer"><img class="social-icon" src="/linkedin.svg" width="32px" alt="linkedin"/></a>
+            <a href="mailto:utripathi2002@gmail.com?subject=Hey%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you%20!!" target="_blank" rel="noreferrer"><img class="social-icon" src="/mail.svg" width="32px" alt="email"/></a>
         </div>
     </div>
 </footer>

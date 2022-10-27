@@ -13,7 +13,7 @@
     <div class={activeTab === "about" ? "tab selected" : "tab"} on:click={handleClick} data-tab="about" >about me</div>
     <div class={activeTab === "projects" ? "tab selected" : "tab"} on:click={handleClick} data-tab="projects" >projects</div>
     <div class={activeTab === "github" ? "tab selected" : "tab"} on:click={handleClick} data-tab="github" >github</div>
-    <div class={activeTab === "work" ? "tab selected" : "tab"} on:click={handleClick} data-tab="work" >work</div>
+    <div class={activeTab === "work" ? "tab selected" : "tab"} on:click={handleClick} data-tab="work" >experience</div>
     <div class={activeTab === "resume" ? "tab selected" : "tab"} on:click={handleClick} data-tab="resume" >resume</div>
 </div>
 

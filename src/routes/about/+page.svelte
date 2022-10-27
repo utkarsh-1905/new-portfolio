@@ -3,6 +3,7 @@
     import Projects from "$lib/experiencePages/projects.svelte";
     import Github from "$lib/experiencePages/github.svelte";
     import Resume from "$lib/experiencePages/resume.svelte";
+    import Work from "$lib/experiencePages/work.svelte";
     export let data: any;
     let active:string;
 </script>
@@ -22,9 +23,7 @@
     {:else if active === "github"}
         <Github bind:repo={data.repos}/>
     {:else if active === "work"}
-        <div class="work">
-            <p>work</p>
-        </div>
+        <Work />
     {:else if active === "resume"}
         <Resume />
     {/if}

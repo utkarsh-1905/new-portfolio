@@ -32,7 +32,7 @@
         {#each projects as project}
             <div class="project-card">
                 <div class="project-info">
-                    <a href={project.github} target="_blank"><h3>{project.name} &#x2197;</h3></a>
+                    <a href={project.github} target="_blank" rel="noreferrer"><h3>{project.name} &#x2197;</h3></a>
                     <p>{project.description}</p>
                 </div>
                 <div class="project-stack">

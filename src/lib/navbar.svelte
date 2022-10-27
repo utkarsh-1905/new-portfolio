@@ -62,8 +62,8 @@
 
 <nav class="navbar scrolled-up">
     <ul class="normal">
-        <li><a href="/experience">experience</a></li>
         <li><a href="/contact">contact</a></li>
+        <li><a href="/about">about</a></li>
         <li><a href="/">home</a></li>
         <li><a href="/blogs">blogs</a></li>
         <Theme />
@@ -78,7 +78,7 @@
         <img src="/shortDown.svg" on:click={closeDrawer} class="close" width="32px" alt="close"/>
         <ul class="responsive">
             <li><a href="/" on:click={closeDrawer}>home</a></li>
-            <li><a href="/experience" on:click={closeDrawer}>experience</a></li>
+            <li><a href="/about" on:click={closeDrawer}>about</a></li>
             <li><a href="/contact" on:click={closeDrawer}>contact</a></li>
             <li><a href="/blogs" on:click={closeDrawer}>blogs</a></li>
         </ul>
