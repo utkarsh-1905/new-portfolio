@@ -19,11 +19,9 @@ const octokit = new Octokit({
 export async function getRepos(){
     try{
     let res = await octokit.request("GET /users/utkarsh-1905/repos?per_page=100");
-    let count=1;
     const data:any = res.data.map((repo:any)=>{
         if(!repo.fork){
             return {
-                id:count++,
                 name:repo.name,
                 description:repo.description,
                 url:repo.html_url,

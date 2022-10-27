@@ -4,21 +4,17 @@
     import Github from "$lib/experiencePages/github.svelte";
     import Resume from "$lib/experiencePages/resume.svelte";
     import Work from "$lib/experiencePages/work.svelte";
+	import About from "$lib/experiencePages/about.svelte";
     export let data: any;
     let active:string;
 </script>
 
 <div class="container">
-    <h2>my experience</h2>
-    <p class="about-me">Hello, I am a developer</p>
+    <About />
     <!-- add projects, github repos, previous work experience. and resume-->
     <!-- lang i use and github contri chart at bottom -->
     <Tabs bind:activeTab={active}/>
-    {#if active === "about"}
-        <div class="about">
-            <p>about me</p>
-        </div>
-    {:else if active === "projects"}
+    {#if active === "projects"}
         <Projects />
     {:else if active === "github"}
         <Github bind:repo={data.repos}/>
@@ -37,8 +33,5 @@
         justify-content: space-evenly;
         width: 100%;
         height: fit-content;
-    }
-    h2{
-        padding: 1rem 0;
     }
 </style>
