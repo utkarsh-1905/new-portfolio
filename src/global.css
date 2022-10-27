@@ -1,52 +1,79 @@
-@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css');
+@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css');
 /* eae1e1 */
 
-:root{
-    --neumorph-blur-radius: 20px;
-    --neumorph-distance: 5px;
-    --bg: #c0c0c0;
-    --font: #a36a4f ;
-    --accent: #ffd772;
-    --neumorph-doffset: #949494;
-    --neumorph-loffset: #ececec;
+:root {
+	--neumorph-blur-radius: 20px;
+	--neumorph-distance: 5px;
+	--bg: #c0c0c0;
+	--font: #a36a4f;
+	--accent: #ffd772;
+	--neumorph-doffset: #949494;
+	--neumorph-loffset: #ececec;
 }
 
-body{
-    background-color: var(--bg);
-    font-family: 'Cascadia Code', sans-serif;
-    color:var(--font);
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+body {
+	background-color: var(--bg);
+	font-family: 'Cascadia Code', sans-serif;
+	color: var(--font);
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
 }
 
-h1,h2,h3,h4,h5,h6,p,a,ul,li,td,th,tr,table,div,span,input,button,textarea,button{
-    margin:0;
-    padding: 0;
-    font-family: 'Cascadia Code', sans-serif;
+html {
+	scroll-behavior: smooth;
 }
 
-a,a:active,a:focus,a:hover{
-    text-decoration: none;
-    outline: none;
-    color: var(--font)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+td,
+th,
+tr,
+table,
+div,
+span,
+input,
+button,
+textarea,
+button {
+	margin: 0;
+	padding: 0;
+	font-family: 'Cascadia Code', sans-serif;
 }
 
-.swiper{
-    height: 100%;
+a,
+a:active,
+a:focus,
+a:hover {
+	text-decoration: none;
+	outline: none;
+	color: var(--font);
 }
 
-.swiper-slide{
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.swiper {
+	height: 100%;
 }
 
-.swiper-pagination-bullet-active{
-    background-color: var(--font) !important;
+.swiper-slide {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: var(--font) !important;
 }
