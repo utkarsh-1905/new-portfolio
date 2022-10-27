@@ -1,5 +1,6 @@
-<div class="container">
-    <object class="pdf" data="/resume.pdf" title="resume"></object>
+  
+  <div class="container">
+    <iframe class="pdf" src="https://res.cloudinary.com/dhoayd4fv/image/upload/v1666854724/Utkarsh_Tripathi_resume_20sept_hpwsoe.pdf" title="resume" />
 </div>
 
 <style>
