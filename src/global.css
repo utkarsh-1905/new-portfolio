@@ -60,6 +60,7 @@ a:hover {
 	text-decoration: none;
 	outline: none;
 	color: var(--font);
+	font-weight: normal;
 }
 
 .swiper {

@@ -4,11 +4,6 @@
     $loading = false;
 </script>
 
-<svelte:head>
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-</svelte:head>
-
 <div class="container">
     <h1>contact me</h1>
     <div class="lottie-container">
