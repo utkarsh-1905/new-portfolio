@@ -1,11 +1,22 @@
-<script>
+<script lang="ts">
     export const prerender = true;
     import {loading} from "$lib/loading"
-    $loading = false
+    $loading = false;
 </script>
+
+<svelte:head>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</svelte:head>
 
 <div class="container">
     <h1>contact me</h1>
+    <div class="lottie-container">
+        <!-- <div class="lottie" bind:this={lottieContainer}></div> -->
+        <p class="helper-text">instead of mails, let's schedule a meet</p>
+        <button class="submit calendly" on:click={()=>{Calendly.initPopupWidget({"url": 'https://calendly.com/heyutkarsh/30min'});return false;}}>Calendly Meet!!</button>
+    </div>
+    <p class="helper-text">or the tranditional contact form</p>
     <form action="https://api.web3forms.com/submit" method="post" class="contact">
         <input type="hidden" name="access_key" value="d6a0ccc5-4cb8-4d11-8049-a220977183fc"/>
         <input type="hidden" name="subject" value="Someone wants to contact me">
@@ -76,6 +87,18 @@
         margin-top: 5rem;
     }
 
+    .calendly{
+        border: none;
+        padding: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
+    }
+
+    .helper-text{
+        font-size: 1.25rem;
+        padding: 0.75rem;
+    }
+
     .submit:hover{
         border-radius: 15px;
         background: var(--bg);
@@ -93,6 +116,15 @@
     label{
         color: var(--light-font);
         font-size: large;   
+    }
+
+    .lottie-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .space{
