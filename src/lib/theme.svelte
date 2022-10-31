@@ -24,13 +24,13 @@
             const root: HTMLElement | null = document.querySelector(":root")
             changeTheme = function (){
                 if(currTheme){
-                    Object.keys(dark).forEach(key=>{
-                        root!.style.setProperty(key,dark[key])
+                    Object.keys(light).forEach(key=>{
+                        root!.style.setProperty(key,light[key])
                     })
                     currTheme = false
                 }else{
-                    Object.keys(light).forEach(key=>{
-                        root!.style.setProperty(key,light[key])
+                    Object.keys(dark).forEach(key=>{
+                        root!.style.setProperty(key,dark[key])
                     })
                     currTheme = true
                 }

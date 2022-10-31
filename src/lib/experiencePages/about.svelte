@@ -2,7 +2,7 @@
 <div class="container">
     <h3>introduction</h3>
     <p>
-        My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institue of Technology, Patiala, India.
+        My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India.
         I am an aspiring software developer and an Open Source enthusiast.
         I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow.
     </p>

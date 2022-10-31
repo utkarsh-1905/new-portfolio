@@ -3,13 +3,13 @@
 /* eae1e1 */
 
 :root {
-	--neumorph-blur-radius: 20px;
+	--neumorph-blur-radius: 10px;
 	--neumorph-distance: 5px;
-	--bg: #c0c0c0;
+	--bg: #18181b;
 	--font: #a36a4f;
 	--accent: #ffd772;
-	--neumorph-doffset: #949494;
-	--neumorph-loffset: #ececec;
+	--neumorph-doffset: #0d0d0f;
+	--neumorph-loffset: #232327;
 }
 
 body {
