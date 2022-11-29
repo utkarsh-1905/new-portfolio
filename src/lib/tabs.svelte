@@ -32,10 +32,10 @@
         cursor: pointer;
         padding: 0.5rem;
         transition: all 0.3s ease-in;
+        color: var(--font);
     }
     .selected{
         font-weight: 900;
-        /* border-bottom: 2px solid magenta; */
         font-size: large;
     }
 

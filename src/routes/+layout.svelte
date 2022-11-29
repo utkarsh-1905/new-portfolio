@@ -20,15 +20,24 @@
 {#if $loading}
 <LoadingPage />
 {:else}
-<main>
-    <slot></slot>
-</main>
+<div class="body-align">
+    <main>
+        <slot></slot>
+    </main>
+    <Footer />
+</div>
 {/if}
-<Footer />
 <style>
     main {
         width: 80vw;
         margin: 0 auto;
         margin-top: 1rem;
+    }
+    .body-align{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
     }
 </style>

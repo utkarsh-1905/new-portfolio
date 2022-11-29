@@ -1,7 +1,18 @@
-<footer>
+<script>
+    import {onMount} from "svelte";
+
+    // onMount(()=>{
+    //     window.addEventListener("scroll",e=>{
+    //         console.log(e,window)
+    //     })
+    // })
+
+</script>
+
+<footer class="show-footer-after-70">
     <div class="socials">
         <div class="cpy">
-            <span>&copy; 2022 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap">sitemap</a></span>
+            <span class="footer-text">&copy; 2022 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap">sitemap</a></span>
         </div>
         <div class="icons">
             <a href="https://github.com/utkarsh-1905" target="_blank" rel="noreferrer"><img class="social-icon" src="/github.svg" width="32px" alt="github"/></a>
@@ -12,23 +23,31 @@
 </footer>
 
 <style>
+
+    .show-footer-after-70{
+        /* display: none; */
+    }
     footer{
         left: 0;
         right: 0;
-        bottom: -1rem;
+        bottom: 0;
         width:100vw;
-        height: 300px;
-        z-index: -10;
-        background-image: url(/subtleWave.svg);
+        padding-top: 4rem;
+        /* z-index: -10; */
+        /* background-image: url(/subtleWave.svg);
         background-repeat: none;
         background-size: cover;
-        background-position: center;
+        background-position: center; */
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-between;
         align-items: center;
         user-select: none;
         margin-top: auto;
+    }
+
+    .footer-text{
+        color:var(--font)
     }
     .socials{
         display: flex;
@@ -44,17 +63,14 @@
         padding: 0.5rem;
         border-radius: 50px;
         background: var(--bg);
-        box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261;
+        box-shadow:  var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
+        /* box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261; */
     }
 
     .social-icon:hover{
         border-radius: 50px;
         background: var(--bg);
         box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) var(--neumorph-doffset), inset calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) var(--neumorph-loffset);
-    }
-
-    .sitemap,span{
-        color: #c8c8c8;
     }
 
     @media screen and (max-width:586px){

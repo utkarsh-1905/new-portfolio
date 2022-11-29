@@ -3,19 +3,19 @@
 /* eae1e1 */
 
 :root {
-	--neumorph-blur-radius: 10px;
+	--neumorph-blur-radius: 6px;
 	--neumorph-distance: 5px;
-	--bg: #18181b;
-	--font: #a36a4f;
-	--accent: #ffd772;
-	--neumorph-doffset: #0d0d0f;
-	--neumorph-loffset: #232327;
+	--bg: #252523;
+	--font: #ffba49;
+	--sub-font: #f7f0f5;
+	--neumorph-doffset: #1f1f1e;
+	--neumorph-loffset: #2b2b28;
+	--accent: #000;
 }
 
 body {
 	background-color: var(--bg);
 	font-family: 'Cascadia Code', sans-serif;
-	color: var(--font);
 	width: 100vw;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -51,6 +51,22 @@ button {
 	margin: 0;
 	padding: 0;
 	font-family: 'Cascadia Code', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--font);
+}
+
+p,
+a,
+span,
+div {
+	color: var(--sub-font);
 }
 
 a,

@@ -70,11 +70,13 @@
         letter-spacing: 0.75rem;
         margin-bottom: 1rem;
         margin-top: 10rem;
+        color: var(--font) !important;
     }
 
     .subtitle{
         padding-top: 1rem;
         letter-spacing: 0.5rem;
+        color: var(--sub-font) !important;
     }
 
     .show-on-done{

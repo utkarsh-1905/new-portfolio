@@ -4,20 +4,22 @@
     let currTheme:boolean = true; //true for light, false for dark
     const light:any = {
         "--bg":"#c0c0c0",
-        "-font":"#a36a4f",
+        "--font":"#a36a4f",
         "--accent":"#000",
+        "--sub-font":"#37474f",
         "--neumorph-doffset":"#949494",
         "--neumorph-loffset":"#ececec",
         "--neumorph-blur-radius":"20px",
         "--neumorph-distance":"5px"
     };
     const dark:any = {
-        "--bg":"#18181b",
-        "-font":"#a36a4f",
+        "--bg":"#252523",
+        "--font":"#ffba49",
+        "--sub-font":"#f7f0f5",
         "--accent":"#000",
-        "--neumorph-doffset":"#0d0d0f",
-        "--neumorph-loffset":"#232327",
-        "--neumorph-blur-radius":"10px",
+        "--neumorph-doffset":"#1f1f1e",
+        "--neumorph-loffset":"#2b2b28",
+        "--neumorph-blur-radius":"6px",
         "--neumorph-distance":"5px"
     };
     onMount(()=>{

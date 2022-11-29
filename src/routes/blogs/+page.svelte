@@ -8,10 +8,11 @@
 </script>
 
 <div class="container">
-    <p>blogs</p>
+    <p style="font-size:1.5rem">blogs</p>
+    <p class="blog-about">i casually write blogs and tutorials about technical concepts... give it a read</p>
     <div class="blogs">
         <div class="info">
-            <a href="https://medium.com/@utripathi2002" target="_blank">medium &#x2197;</a>
+            <a href="https://medium.com/@utripathi2002" target="_blank" rel="noreferrer">medium &#x2197;</a>
         </div>
         <div class="medium">
         <Swiper
@@ -45,7 +46,7 @@
         </Swiper>
         </div>
         <div class="info">
-            <a href="https://dev.to/utkarsh1905" target="_blank">dev.to &#x2197;</a>
+            <a href="https://dev.to/utkarsh1905" target="_blank" rel="noreferrer">dev.to &#x2197;</a>
         </div>
         <div class="devto">
             <Swiper
@@ -99,6 +100,11 @@
 
     .info{
         margin-top: 2rem;
+    }
+
+    .blog-about{
+        text-align: left;
+        margin-top: 1rem;
     }
 
     .medium,.devto{

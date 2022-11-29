@@ -9,11 +9,11 @@
     <h3 style="margin-top: 1rem;">tech stack</h3>
     <div>
         <ul>
-            <li>Frontend - react.js, next.js, sveltekit, html, css, bootstrap, materialui, tailwindcss, electron.js</li>
-            <li>Backend - node.js, golang, firebase</li>
-            <li>Cloud - aws, oracle cloud, azure cloud, firebase, gcp</li>
-            <li>DevOps tools - docker, kubernetes, terraform, git, github, docker-compose</li>
-            <li>Blockchain - solidity, web3.js, ethers.js, ganache, polygon, ethereum, infura, ipfs, metamask</li>
+            <li><span style="font-weight: bold;">Frontend</span> - react.js, next.js, sveltekit, html, css, bootstrap, materialui, tailwindcss, electron.js</li>
+            <li><span style="font-weight: bold;">Backend</span> - node.js, golang, firebase</li>
+            <li><span style="font-weight: bold;">Cloud</span> - aws, oracle cloud, azure cloud, firebase, gcp</li>
+            <li><span style="font-weight: bold;">DevOps tools</span> - docker, kubernetes, terraform, git, github, docker-compose</li>
+            <li><span style="font-weight: bold;">Blockchain</span> - solidity, thirdweb, web3.js, ethers.js, ganache, polygon, ethereum, infura, ipfs, metamask</li>
         </ul>
     </div>
 </div>
