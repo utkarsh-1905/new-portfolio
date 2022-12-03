@@ -57,7 +57,6 @@
         align-items: center;
         flex-direction: row;
         position: relative;
-        margin-bottom: 8rem;
     }
     .bg{
        z-index: -10;

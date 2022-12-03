@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-auto';
-// import adapter from '@sveltejs/adapter-cloudflare';
+// import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-cloudflare';
 import preprocess from 'svelte-preprocess';
 import ESBuildNodePolyfillsPlugin from 'esbuild-plugin-node-polyfills';
 
@@ -10,9 +10,10 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter({
-			Plugin: [ESBuildNodePolyfillsPlugin]
-		})
+		adapter: adapter()
+		// adapter: adapter({
+		// 	Plugin: [ESBuildNodePolyfillsPlugin]
+		// })
 		// vite: { optimizeDeps: { include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'] } }
 	}
 };
