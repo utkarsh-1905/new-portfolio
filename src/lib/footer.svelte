@@ -12,7 +12,7 @@
 <footer class="show-footer-after-70">
     <div class="socials">
         <div class="cpy">
-            <span class="footer-text">&copy; 2022 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap">sitemap</a></span>
+            <span class="footer-text">&copy; 2022 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap.xml">sitemap</a></span>
         </div>
         <div class="icons">
             <a href="https://github.com/utkarsh-1905" target="_blank" rel="noreferrer"><img class="social-icon" src="/github.svg" width="32px" alt="github"/></a>

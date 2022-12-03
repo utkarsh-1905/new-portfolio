@@ -15,7 +15,7 @@
         {
             name:"GoChain",
             description:"[working]A blockchain in golang with proof of stake consensus algorithm.",
-            stack:["golang","urfave/cli","PoS"],
+            stack:["golang","urfave/cli","pos"],
             github:"https://github.com/utkarsh-1905/go-chain"
         },
         {
@@ -23,6 +23,18 @@
             description:"Created a solution for transfering vitals of heavy BEML machines without internet to a secure cloud database.",
             stack:["electron.js","azure","react-native"],
             github:"https://github.com/utkarsh-1905/Makeathon-Submisson"
+        },
+        {
+            name:"Blogging DAPP",
+            description:"Created a smart contract for posting blogs and made a frontend in React with Thirdweb SDK to interact with the Smart Contract, login with Metamask and display the data",
+            stack:["solidity","thirdweb","hardhat"],
+            github:"https://github.com/utkarsh-1905/blogging-dapp"
+        },
+        {
+            name:"Self Hosting Server",
+            description:"Using a virtual machine on Oracle Cloud to self host various software using docker and test out new features and functionalities. I am using Traefik reverse proxy with Portainer to expose different services to different subdomains.",
+            stack:["traefik","docker","linux"],
+            github:"https://dashboard.utkarsh.ninja"
         },
     ]
 </script>

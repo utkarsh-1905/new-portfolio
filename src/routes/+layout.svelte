@@ -11,6 +11,22 @@
 
 <svelte:head>
     <title>Utkarsh Tripathi</title>
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Utkarsh Tripathi - Student, Developer, Speaker">
+    <meta name="description" content="My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://utkarsh.ninja/">
+    <meta property="og:title" content="Utkarsh Tripathi - Student, Developer, Speaker">
+    <meta property="og:description" content="My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://utkarsh.ninja/">
+    <meta property="twitter:title" content="Utkarsh Tripathi - Student, Developer, Speaker">
+    <meta property="twitter:description" content="My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow.">
+    
 </svelte:head>
 
 <header>
