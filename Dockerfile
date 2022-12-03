@@ -1,28 +1,20 @@
-FROM node:18 AS build
+FROM alpine
 
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+RUN apk add --update nodejs npm
 
 WORKDIR /app
 
 COPY package.json .
-COPY pnpm-lock.yaml .
+COPY package-lock.json .
 
-RUN pnpm install
+RUN npm ci
 
 COPY . .
 
-RUN pnpm run build
-
-
-FROM node:18-alpine3.16
-
-USER node:node
-
-COPY --from=build --chown=node:node /app/build/ ./build
-COPY --from=build --chown=node:node /app/package.json ./package.json
-COPY --from=build --chown=node:node /app/pnpm-lock.yaml ./pnpm-lock.yaml
-COPY --from=build --chown=node:node /app/node_modules ./node_modules
+RUN npm run build
 
 EXPOSE 3000
 
-CMD ["node", "build"]
+CMD ["node", "build/index.js"]
+
+

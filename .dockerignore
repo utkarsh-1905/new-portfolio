@@ -1,5 +1,6 @@
-node_modules
-.svelte-kit
-.svelte-kit-cache
+node_modules/
+.svelte-kit/
+.svelte-kit-cache/
 .npmrc
 Caddyfile
+build/
