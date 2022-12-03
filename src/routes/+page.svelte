@@ -1,5 +1,6 @@
 <script lang='ts'>
     import Body from "$lib/body.svelte"
+    export const prerender = true;
 </script>
 
 <div class="container">
