@@ -11,6 +11,9 @@ RUN npm ci
 
 COPY . .
 
+ENV VITE_GITHUB_KEY ""
+ENV VITE_DEVTO ""
+
 RUN npm run build
 
 EXPOSE 3000
