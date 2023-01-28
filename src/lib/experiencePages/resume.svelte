@@ -1,6 +1,6 @@
   
   <div class="container">
-    <iframe class="pdf" src="https://res.cloudinary.com/dhoayd4fv/image/upload/v1666854724/Utkarsh_Tripathi_resume_20sept_hpwsoe.pdf" style="border:none;" title="resume" />
+    <iframe class="pdf" src="https://res.cloudinary.com/dhoayd4fv/image/upload/v1674908067/utkarsh_tripathi_rzqbdk.pdf" style="border:none;" title="resume" />
 </div>
 
 <style>
