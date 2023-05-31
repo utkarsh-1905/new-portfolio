@@ -1,11 +1,11 @@
-name: "SSH into EC2"
+name: 'SSH into EC2'
 on:
   push:
     branches:
       - deploy
 
 jobs:
-  ssh: 
+  ssh:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,4 +18,4 @@ jobs:
           known_hosts: ${{secrets.KNOWN_HOSTS}}
           if_key_exists: fail
       - name: rsync over ssh
-        run: ../../deploy.sh    
+        run: ../../deploy.sh
