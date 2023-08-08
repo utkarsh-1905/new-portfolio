@@ -1,6 +1,13 @@
 <script lang="ts">
 	const projects = [
 		{
+			name: 'Time Table Generator',
+			description:
+				'An app to generate time table for a class by scraping and cleaning the excel provided by college.',
+			stack: ['go', 'html', 'docker'],
+			github: 'https://github.com/utkarsh-1905/time-table'
+		},
+		{
 			name: 'CLI based chat app',
 			description:
 				'A node cli client to create chat rooms and chat with other users in the terminal',
@@ -8,24 +15,17 @@
 			github: 'https://github.com/utkarsh-1905/node-cli-project'
 		},
 		{
-			name: 'Yelp Camp',
-			description:
-				'Created a full-stack app to list various available campsites in a user-friendly way.',
-			stack: ['nodejs', 'ejs', 'mongodb'],
-			github: 'hhttps://github.com/utkarsh-1905/yelp-camp'
+			name: 'Play with Life',
+			description: 'A game of life simulator implemented in golang',
+			stack: ['golang', 'opengl', 'shader'],
+			github: 'https://github.com/utkarsh-1905/go-play-with-life'
 		},
 		{
-			name: 'GoChain',
-			description: '[working]A blockchain in golang with proof of stake consensus algorithm.',
-			stack: ['golang', 'urfave/cli', 'pos'],
-			github: 'https://github.com/utkarsh-1905/go-chain'
-		},
-		{
-			name: 'BEML Connect',
+			name: 'Docker network vis',
 			description:
 				'Created a solution for transfering vitals of heavy BEML machines without internet to a secure cloud database.',
-			stack: ['electron.js', 'azure', 'react-native'],
-			github: 'https://github.com/utkarsh-1905/Makeathon-Submisson'
+			stack: ['go', 'docker', 'linux'],
+			github: 'https://github.com/utkarsh-1905/docker-network-vis'
 		},
 		{
 			name: 'Blogging DAPP',
@@ -45,6 +45,7 @@
 </script>
 
 <div class="container">
+	<p class="project-help">Don't forget to ⭐ these repositories!!</p>
 	<div class="projects-container">
 		{#each projects as project}
 			<div class="project-card">
@@ -73,6 +74,9 @@
 		align-items: center;
 	}
 
+	.project-help{
+		margin-top: 1rem;
+	}
 	.projects-container {
 		display: flex;
 		flex-direction: row;

@@ -1,7 +1,7 @@
 <div class="container">
 	<iframe
 		class="pdf"
-		src="https://res.cloudinary.com/dhoayd4fv/image/upload/v1674908067/utkarsh_tripathi_rzqbdk.pdf"
+		src="https://res.cloudinary.com/dhoayd4fv/image/upload/v1691511741/utkarsh_tripathi_wimage_bhhrfz.pdf"
 		style="border:none;"
 		title="resume"
 	/>

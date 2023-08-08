@@ -20,7 +20,7 @@
 	<form action="https://api.web3forms.com/submit" method="post" class="contact">
 		<input type="hidden" name="access_key" value="d6a0ccc5-4cb8-4d11-8049-a220977183fc" />
 		<input type="hidden" name="subject" value="Someone wants to contact me" />
-		<input type="hidden" name="redirect" value="https://www.utkarsh.ninja/" />
+		<input type="hidden" name="redirect" value="https://www.utkarsh.ninja/thanks" />
 		<div class="space">
 			<label for="contact-name">name</label>
 			<input type="text" required id="contact-name" name="name" placeholder="steve wozniak" />
