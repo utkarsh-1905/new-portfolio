@@ -60,6 +60,7 @@
 		align-items: center;
 		user-select: none;
 		position: relative;
+		overflow-x: hidden;
 		/* margin-top: auto; */
 	}
 

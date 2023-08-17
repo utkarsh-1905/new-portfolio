@@ -1,11 +1,12 @@
 <script lang="ts">
-	const projects = [
+	let projects = [
 		{
 			name: 'Time Table Generator',
 			description:
 				'An app to generate time table for a class by scraping and cleaning the excel provided by college.',
 			stack: ['go', 'html', 'docker'],
-			github: 'https://github.com/utkarsh-1905/time-table'
+			github: 'https://github.com/utkarsh-1905/time-table',
+			stars: getStars('https://api.github.com/repos/utkarsh-1905/time-table/stargazers')
 		},
 		{
 			name: 'CLI based chat app',
@@ -39,9 +40,22 @@
 			description:
 				'Using a virtual machine on Oracle Cloud to self host various software using docker and test out new features and functionalities. I am using Traefik reverse proxy with Portainer to expose different services to different subdomains.',
 			stack: ['traefik', 'docker', 'linux'],
-			github: 'https://dashboard.utkarsh.ninja'
+			github: 'https://dashboard.utkarssh.tech'
 		}
 	];
+	function getStars(url: string){
+		let c = [];
+		fetch(url)
+		.then(res => res.json())
+		.then(data =>{
+			console.log(data)
+			c = data
+		}).catch(e=>{
+			console.log("fetch error")
+			return 0;
+		})
+		return c.length;
+	}
 </script>
 
 <div class="container">
@@ -51,7 +65,13 @@
 			<div class="project-card">
 				<div class="project-info">
 					<a href={project.github} target="_blank" rel="noreferrer"
-						><h3>{project.name} &#x2197;</h3></a
+						><h3>{project.name} &#x2197; 
+						 {#if project.stars}
+							<span>&#x2197;  {project.stars} ⭐</span>
+						 {/if}
+						</h3>
+						
+						</a
 					>
 					<p>{project.description}</p>
 				</div>

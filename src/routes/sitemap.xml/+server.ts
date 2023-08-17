@@ -12,24 +12,24 @@ export async function GET() {
       >
         <!-- <url> elements go here -->
         <url>
-            <loc>https://utkarsh.ninja</loc>
+            <loc>https://utkarssh.tech</loc>
             <lastmod>2022-11-30</lastmod>
             <changefreq>monthly</changefreq>
             <priority>0.5</priority>
         </url>
         <url>
-            <loc>https://utkarsh.ninja/about</loc>
+            <loc>https://utkarssh.tech/about</loc>
             <lastmod>2022-11-30</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
         </url>
         <url>
-            <loc>https://utkarsh.ninja/contact</loc>
+            <loc>https://utkarssh.tech/contact</loc>
             <lastmod>2022-11-30</lastmod>
             <priority>0.7</priority>
         </url>
         <url>
-            <loc>https://utkarsh.ninja/blogs</loc>
+            <loc>https://utkarssh.tech/blogs</loc>
             <lastmod>2022-11-30</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
