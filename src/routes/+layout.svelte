@@ -26,7 +26,7 @@
 	<meta name="title" content="Utkarsh Tripathi - Student, Developer, Speaker" />
 	<meta
 		name="description"
-		content="My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow."
+		content="My name is Utkarsh Tripathi and I am in my third year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow."
 	/>
 
 	<!-- Open Graph / Facebook -->
@@ -35,7 +35,7 @@
 	<meta property="og:title" content="Utkarsh Tripathi - Student, Developer, Speaker" />
 	<meta
 		property="og:description"
-		content="My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow."
+		content="My name is Utkarsh Tripathi and I am in my third year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow."
 	/>
 
 	<!-- Twitter -->
@@ -44,13 +44,15 @@
 	<meta property="twitter:title" content="Utkarsh Tripathi - Student, Developer, Speaker" />
 	<meta
 		property="twitter:description"
-		content="My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow."
+		content="My name is Utkarsh Tripathi and I am in my third year of B.Tech with majors in Computer and Electronics from Thapar Institute of Technology, Patiala, India. I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve problems with efficent solutions and I am always looking for opportunities to learn and grow."
 	/>
 </svelte:head>
 
 <header>
 	<Navbar />
 </header>
+
+<canvas id="canvas"></canvas>
 
 {#if $loading}
 	<LoadingPage />
@@ -93,5 +95,14 @@
 		justify-content: space-between;
 		align-items: center;
 		min-height: 100vh;
+	}
+
+	#canvas{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: -100;
 	}
 </style>
