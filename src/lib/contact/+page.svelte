@@ -4,7 +4,7 @@
 	$loading = false;
 </script>
 
-<div class="container">
+<div class="container" id="contact">
 	<h1>contact me</h1>
 	<div class="lottie-container">
 		<!-- <div class="lottie" bind:this={lottieContainer}></div> -->

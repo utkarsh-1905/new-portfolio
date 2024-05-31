@@ -7,7 +7,7 @@
 	export let data: any;
 </script>
 
-<div class="container">
+<div class="container" id="blogs">
 	<p style="font-size:1.5rem">blogs</p>
 	<p class="blog-about">
 		i casually write blogs and tutorials about technical concepts... give it a read

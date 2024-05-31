@@ -9,7 +9,7 @@
 	let active: string;
 </script>
 
-<div class="container">
+<div class="container" id="about">
 	<About />
 	<!-- add projects, github repos, previous work experience. and resume-->
 	<!-- lang i use and github contri chart at bottom -->
