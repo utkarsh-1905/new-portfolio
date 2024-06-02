@@ -19,7 +19,7 @@
 	{#if active === 'projects'}
 		<Projects {projects}/>
 	{:else if active === 'work'}
-		<Work experience={experience}/>
+		<Work works={experience}/>
 	{:else if active === 'github'}
 		<Github bind:repo={repos} />
 	{:else if active === 'resume'}

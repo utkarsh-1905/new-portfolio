@@ -116,7 +116,7 @@
 
 	nav {
 		margin-top: 1.5rem;
-		position: relative;
+		position: fixed;
 		width: 100vw;
 		background-color: var(--bg);
 		top: 0;

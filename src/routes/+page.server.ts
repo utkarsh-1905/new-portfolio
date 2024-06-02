@@ -38,7 +38,7 @@ export async function load() {
 			console.log(expError);
 		}
 
-		const st = await supabase.storage.listBuckets();
+		const st = await supabase.storage.from('resume').list();
 		console.log(st);
 
 		loading.set(false);
