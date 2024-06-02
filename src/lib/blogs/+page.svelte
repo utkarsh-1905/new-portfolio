@@ -1,26 +1,21 @@
 <script lang="ts">
 	import BlogCard from '$lib/blog_card.svelte';
 	import { Swiper, SwiperSlide } from 'swiper/svelte';
-	import { Keyboard, Pagination } from 'swiper';
+	import { Keyboard, Pagination, Autoplay } from 'swiper';
 	import 'swiper/css';
 	import 'swiper/css/bundle';
 	export let data: any;
 </script>
 
-<div class="container">
-	<p style="font-size:1.5rem">blogs</p>
-	<p class="blog-about">
+<div class="container" id="blogs">
+	<p style="font-size:1.5rem; color: var(--font);">blogs</p>
+	<!-- <p class="blog-about">
 		i casually write blogs and tutorials about technical concepts... give it a read
-	</p>
+	</p> -->
 	<div class="blogs">
-		<div class="info">
-			<a href="https://medium.com/@utripathi2002" target="_blank" rel="noreferrer"
-				>medium &#x2197;</a
-			>
-		</div>
-		<div class="medium">
+		<div class="blog-box">
 			<Swiper
-				modules={[Keyboard, Pagination]}
+				modules={[Keyboard, Pagination, Autoplay]}
 				keyboard={true}
 				spaceBetween={40}
 				slidesPerView={2}
@@ -41,38 +36,13 @@
 						spaceBetween: 50
 					}
 				}}
+				autoplay={true}
+				loop={true}
+				speed={1000}
 			>
 				{#each data.medBlogs as blog}
 					<SwiperSlide><BlogCard {...blog} /></SwiperSlide>
 				{/each}
-			</Swiper>
-		</div>
-		<div class="info">
-			<a href="https://dev.to/utkarsh1905" target="_blank" rel="noreferrer">dev.to &#x2197;</a>
-		</div>
-		<div class="devto">
-			<Swiper
-				modules={[Keyboard, Pagination]}
-				keyboard={true}
-				slidesPerView="auto"
-				spaceBetween={40}
-				pagination={{ clickable: true }}
-				breakpoints={{
-					280: {
-						slidesPerView: 1
-					},
-					586: {
-						slidesPerView: 'auto',
-						spaceBetween: 20
-					},
-					786: {
-						spaceBetween: 20
-					},
-					1048: {
-						spaceBetween: 50
-					}
-				}}
-			>
 				{#each data.devBlogs as blog}
 					<SwiperSlide><BlogCard {...blog} /></SwiperSlide>
 				{/each}
@@ -84,6 +54,7 @@
 <style>
 	.container {
 		height: fit-content;
+		margin-top: 5rem;
 	}
 	p {
 		text-align: center;
@@ -98,17 +69,14 @@
 		justify-content: space-between;
 	}
 
-	.info {
-		margin-top: 2rem;
-	}
 
 	.blog-about {
 		text-align: left;
 		margin-top: 1rem;
+		font-size: medium;
 	}
 
-	.medium,
-	.devto {
+	.blog-box {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -123,8 +91,5 @@
 				var(--neumorph-doffset),
 			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
 				var(--neumorph-blur-radius) var(--neumorph-loffset);
-	}
-	a {
-		font-size: large;
 	}
 </style>

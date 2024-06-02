@@ -1,61 +1,18 @@
 <script lang="ts">
-	let projects = [
-		{
-			name: 'Time Table Generator',
-			description:
-				'An app to generate time table for a class by scraping and cleaning the excel provided by college.',
-			stack: ['go', 'html', 'docker'],
-			github: 'https://github.com/utkarsh-1905/time-table',
-			stars: getStars('https://api.github.com/repos/utkarsh-1905/time-table/stargazers')
-		},
-		{
-			name: 'CLI based chat app',
-			description:
-				'A node cli client to create chat rooms and chat with other users in the terminal',
-			stack: ['nodejs', 'javascript', 'socket.io'],
-			github: 'https://github.com/utkarsh-1905/node-cli-project'
-		},
-		{
-			name: 'Play with Life',
-			description: 'A game of life simulator implemented in golang',
-			stack: ['golang', 'opengl', 'shader'],
-			github: 'https://github.com/utkarsh-1905/go-play-with-life'
-		},
-		{
-			name: 'Docker network vis',
-			description:
-				'Created a solution for transfering vitals of heavy BEML machines without internet to a secure cloud database.',
-			stack: ['go', 'docker', 'linux'],
-			github: 'https://github.com/utkarsh-1905/docker-network-vis'
-		},
-		{
-			name: 'Blogging DAPP',
-			description:
-				'Created a smart contract for posting blogs and made a frontend in React with Thirdweb SDK to interact with the Smart Contract, login with Metamask and display the data',
-			stack: ['solidity', 'thirdweb', 'hardhat'],
-			github: 'https://github.com/utkarsh-1905/blogging-dapp'
-		},
-		{
-			name: 'Self Hosting Server',
-			description:
-				'Using a virtual machine on Oracle Cloud to self host various software using docker and test out new features and functionalities. I am using Traefik reverse proxy with Portainer to expose different services to different subdomains.',
-			stack: ['traefik', 'docker', 'linux'],
-			github: 'https://dashboard.utkarssh.tech'
-		}
-	];
-	function getStars(url: string){
-		let c = [];
-		fetch(url)
-		.then(res => res.json())
-		.then(data =>{
-			console.log(data)
-			c = data
-		}).catch(e=>{
-			console.log("fetch error")
-			return 0;
-		})
-		return c.length;
-	}
+	export let projects;
+	// function getStars(url: string){
+	// 	let c = [];
+	// 	fetch(url)
+	// 	.then(res => res.json())
+	// 	.then(data =>{
+	// 		// console.log(data)
+	// 		c = data
+	// 	}).catch(e=>{
+	// 		console.log("fetch error")
+	// 		return 0;
+	// 	})
+	// 	return c.length;
+	// }
 </script>
 
 <div class="container">

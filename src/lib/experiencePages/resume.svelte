@@ -1,7 +1,7 @@
 <div class="container">
 	<iframe
 		class="pdf"
-		src="https://res.cloudinary.com/dhoayd4fv/image/upload/v1691511741/utkarsh_tripathi_wimage_bhhrfz.pdf"
+		src="https://rvrlhaxjrzkjdzoktvdi.supabase.co/storage/v1/object/public/resume/lts/resume.pdf"
 		style="border:none;"
 		title="resume"
 	/>

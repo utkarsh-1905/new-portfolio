@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import Skills from './skill-icons.svelte';
 </script>
 
@@ -10,7 +9,7 @@
 	<div class="socials">
 		<div class="cpy">
 			<span class="footer-text"
-				>&copy; 2023 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap.xml">sitemap</a
+				>&copy; 2024 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap.xml">sitemap</a
 				></span
 			>
 		</div>
@@ -19,10 +18,16 @@
 				><img class="social-icon" src="/github.svg" width="32px" alt="github" /></a
 			>
 			<a
-				href="https://www.linkedin.com/in/utkarsh-tripathi-80a0ab192/"
+				href="https://www.linkedin.com/in/utkarsh1905/"
 				target="_blank"
 				rel="noreferrer"
 				><img class="social-icon" src="/linkedin.svg" width="32px" alt="linkedin" /></a
+			>
+			<a
+				href="https://x.com/utripathi2002"
+				target="_blank"
+				rel="noreferrer"
+				><img class="social-icon" src="/twitter.svg" width="32px" alt="twitter" /></a
 			>
 			<a
 				href="mailto:utripathi2002@gmail.com?subject=Hey%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you%20!!"

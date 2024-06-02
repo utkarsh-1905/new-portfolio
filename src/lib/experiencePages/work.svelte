@@ -1,49 +1,51 @@
 <script>
-	const works = [
-		{
-			name: 'Enterprof',
-			role: 'Blockchain Developer',
-			type: 'Internship',
-			jobs: [
-				'Developed the frontend for the DAPP',
-				'Modified the smart contract in solidity to minimize gas cost',
-				'Created backend to listen to events on the smart contract',
-				"Created packages and API's for their SaaS business model",
-				'Developed the backend to execute on chain (polygon) transactions'
-			],
-			time: 'April-July 2022'
-		},
-		{
-			name: 'Google Developers Student Club',
-			role: 'Core Member',
-			type: 'Full Time',
-			jobs: ['Leading a Blockchain development program with 100+ students'],
-			time: 'June 2022-Present'
-		},
-		{
-			name: 'Microsoft Learn Student Chapter',
-			role: 'Core Member',
-			type: 'Full Time',
-			jobs: [
-				'Oraganized workshops and gave talks on OpenSource, Git and Github',
-				'Helped in organizing Makeathon, a MLH sponsered Hackathon',
-				'Developed the website for the chapter',
-				'Developed a recruitment portal with firebase backend and edge functions'
-			],
-			time: 'December 2021-Present'
-		},
-		{
-			name: 'Lifesap',
-			role: 'Backend Developer',
-			type: 'Internship',
-			jobs: [
-				'Developed the backend on firebase for the medical e-commerce platform',
-				'Optimized API response times',
-				'Used firebase and firestore'
-			],
-			time: 'May-July 2022'
-		}
-	];
+	// const works = [
+	// 	{
+	// 		name: 'Enterprof',
+	// 		role: 'Blockchain Developer',
+	// 		type: 'Internship',
+	// 		jobs: [
+	// 			'Developed the frontend for the DAPP',
+	// 			'Modified the smart contract in solidity to minimize gas cost',
+	// 			'Created backend to listen to events on the smart contract',
+	// 			"Created packages and API's for their SaaS business model",
+	// 			'Developed the backend to execute on chain (polygon) transactions'
+	// 		],
+	// 		time: 'April-July 2022'
+	// 	},
+	// 	{
+	// 		name: 'Google Developers Student Club',
+	// 		role: 'Core Member',
+	// 		type: 'Full Time',
+	// 		jobs: ['Leading a Blockchain development program with 100+ students'],
+	// 		time: 'June 2022-Present'
+	// 	},
+	// 	{
+	// 		name: 'Microsoft Learn Student Chapter',
+	// 		role: 'Core Member',
+	// 		type: 'Full Time',
+	// 		jobs: [
+	// 			'Oraganized workshops and gave talks on OpenSource, Git and Github',
+	// 			'Helped in organizing Makeathon, a MLH sponsered Hackathon',
+	// 			'Developed the website for the chapter',
+	// 			'Developed a recruitment portal with firebase backend and edge functions'
+	// 		],
+	// 		time: 'December 2021-Present'
+	// 	},
+	// 	{
+	// 		name: 'Lifesap',
+	// 		role: 'Backend Developer',
+	// 		type: 'Internship',
+	// 		jobs: [
+	// 			'Developed the backend on firebase for the medical e-commerce platform',
+	// 			'Optimized API response times',
+	// 			'Used firebase and firestore'
+	// 		],
+	// 		time: 'May-July 2022'
+	// 	}
+	// ];
+
+	export let works;
 </script>
 
 <div class="container">

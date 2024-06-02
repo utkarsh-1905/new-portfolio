@@ -22,7 +22,7 @@
 <style>
 	.container {
 		/* width:95%; */
-		width: 20rem;
+		width: 17rem;
 		height: 70%;
 		margin: 0 1rem;
 		display: flex;
