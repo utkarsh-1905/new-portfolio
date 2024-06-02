@@ -1,9 +1,9 @@
 <div class="container">
 	<h3>something about me</h3>
 	<p>
-		Hello! My name is Utkarsh Tripathi, and I am a passionate software developer with a strong enthusiasm 
-		for open source projects. Currently, I am working as a backend developer, where I specialize in designing 
-		and implementing robust server-side solutions. In addition to my professional role, I am also a mentee at 
+		Hello! My name is Utkarsh Tripathi, and I am a passionate software developer with a strong enthusiasm
+		for open source projects. Currently, I am working as a backend developer, where I specialize in designing
+		and implementing robust server-side solutions. In addition to my professional role, I am also a mentee at
 		the Linux Foundation, where I am actively involved in contributing to and learning from the vibrant open source community.
 	</p>
 	<h3 style="margin-top: 1rem;">tech stack</h3>

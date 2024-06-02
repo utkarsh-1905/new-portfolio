@@ -11,7 +11,7 @@
 
 <div class="tabs">
 	<!-- <div class={activeTab === "about" ? "tab selected" : "tab"} on:click={handleClick} data-tab="about" >about me</div> -->
-	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} 
+	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick}
 		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 		data-tab="work"
 	>

@@ -127,7 +127,7 @@
 	.social-icon{
 		margin-right: 1rem;
 	}
-	
+
 	@keyframes fromAbove {
 		0% {
 			transform: translateY(-100%);
