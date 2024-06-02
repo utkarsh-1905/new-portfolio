@@ -1,33 +1,32 @@
 <div class="container">
-	<h3>introduction</h3>
+	<h3>something about me</h3>
 	<p>
-		My name is Utkarsh Tripathi and I am in my second year of B.Tech with majors in Computer and
-		Electronics from <b>Thapar Institute of Technology, Patiala, India.</b>
-		I am an aspiring software developer and an Open Source enthusiast. I like to work in teams and solve
-		problems with efficent solutions and I am always looking for opportunities to learn and grow.
+		Hello! My name is Utkarsh Tripathi, and I am a passionate software developer with a strong enthusiasm 
+		for open source projects. Currently, I am working as a backend developer, where I specialize in designing 
+		and implementing robust server-side solutions. In addition to my professional role, I am also a mentee at 
+		the Linux Foundation, where I am actively involved in contributing to and learning from the vibrant open source community.
 	</p>
 	<h3 style="margin-top: 1rem;">tech stack</h3>
 	<div>
 		<ul>
 			<li>
-				<span style="font-weight: bold;">Languages</span> - javascript, golang, c++, solidity, html,
+				<span style="font-weight: bold;">Languages</span> - javascript, golang, c/c++, python, solidity, html,
 				css
 			</li>
 			<li>
 				<span style="font-weight: bold;">Frontend</span> - react.js, next.js, sveltekit, materialui,
 				tailwindcss, electron.js
 			</li>
-			<li><span style="font-weight: bold;">Backend</span> - node.js, golang, firebase, nats</li>
+			<li><span style="font-weight: bold;">Backend</span> - node.js, golang, django-rest-framework</li>
 			<li>
-				<span style="font-weight: bold;">Cloud</span> - aws, oracle cloud, azure cloud, firebase, gcp
+				<span style="font-weight: bold;">Cloud</span> - aws, firebase, gcp, supabase
 			</li>
 			<li>
 				<span style="font-weight: bold;">DevOps tools</span> - docker, kubernetes, terraform, git, github,
-				docker-compose
+				docker-compose, jenkins, bash
 			</li>
 			<li>
-				<span style="font-weight: bold;">Blockchain</span> - thirdweb, web3.js, ethers.js, ganache, polygon,
-				ethereum, infura, ipfs, metamask
+				<span style="font-weight: bold;">Blockchain</span> - polygon, identity solutions, verifiable credentials, dwns, solidity
 			</li>
 		</ul>
 	</div>

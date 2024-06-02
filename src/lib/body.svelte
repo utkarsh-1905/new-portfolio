@@ -22,11 +22,17 @@
 </script>
 
 <div class="container">
-	<Typewriter mode="cascade" interval={100} cursor={true} on:done={typewriterDone}>
-		<p class="title">hi, i am utkarsh</p>
+	<Typewriter mode="loop" interval={200} wordInterval={2000} cursor={true} on:done={typewriterDone}>
+		<p class="title">namaste</p>
+		<p class="title">hello</p>
+		<p class="title">hola</p>
+		<p class="title">salam</p>
+		<p class="title">aloha</p>
 	</Typewriter>
 	{#if typewritterDone}
-		<h2 class="show-on-done subtitle">developer &#x2022; student &#x2022; speaker</h2>
+		<!-- <h2 class="show-on-done subtitle">developer &#x2022; student &#x2022; speaker</h2> -->
+		<h2 class="show-on-done subtitle">welcome to my page</h2>
+		<!-- <h2 class="show-on-done subtitle"></h2> -->
 		<div class="buttons">
 			<a href="https://github.com/utkarsh-1905" target="_blank" rel="noreferrer" class="social show-on-done">
 				<img class="social-icon social-left" src="/github.svg" width="24px" alt="github" />
@@ -46,7 +52,9 @@
 
 <style>
 	.container {
+		--cursor-color: var(--bg);
 		margin-top: 4rem;
+		padding-top: 5rem;
 		width: 100%;
 		height: max-content;
 		min-height: 60vh;
@@ -65,8 +73,6 @@
 	.title {
 		font-size: 4rem;
 		letter-spacing: 0.75rem;
-		margin-bottom: 1rem;
-		margin-top: 10rem;
 		color: var(--font) !important;
 	}
 

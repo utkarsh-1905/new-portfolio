@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	export let activeTab: string = 'projects';
+	export let activeTab: string = 'work';
 	let handleClick: any;
 	onMount(() => {
 		handleClick = (e: any) => {
@@ -11,6 +11,12 @@
 
 <div class="tabs">
 	<!-- <div class={activeTab === "about" ? "tab selected" : "tab"} on:click={handleClick} data-tab="about" >about me</div> -->
+	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} 
+		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
+		data-tab="work"
+	>
+		experience
+	</div>
 	<div
 		class={activeTab === 'projects' ? 'tab selected' : 'tab'}
 		on:click={handleClick}
@@ -18,12 +24,6 @@
 		data-tab="projects"
 	>
 		projects
-	</div>
-	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} 
-		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
-		data-tab="work"
-	>
-		experience
 	</div>
 	<div
 		class={activeTab === 'github' ? 'tab selected' : 'tab'}
