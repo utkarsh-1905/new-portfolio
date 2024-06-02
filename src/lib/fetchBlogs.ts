@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import fs from "fs"
 import { VITE_DEVTO } from '$env/static/private';
 
 export const mediumBlogs = async () => {
@@ -11,8 +10,14 @@ export const mediumBlogs = async () => {
 		response.push({
 			title: el.title,
 			link: el.link,
-			categories: el.category,
-			thumbnail: el.thumbnail
+			categories: el.categories,
+			thumbnail: ((desc) => {
+				try {
+					const regex = /src="([^"]+)"/;
+					const found = desc.match(regex);
+					return found ? found[1] : null;
+				} catch {}
+			})(el.description)
 		});
 	});
 	return response;
@@ -25,7 +30,6 @@ export const devtoBlogs = async () => {
 			'api-key': `${VITE_DEVTO}`
 		}
 	});
-	// fs.writeFileSync('./src/lib/mediumBlogs.json', JSON.stringify(res.data))
 	const response: any[] = [];
 	res.data.map((el: any) => {
 		response.push({
@@ -35,6 +39,5 @@ export const devtoBlogs = async () => {
 			thumbnail: el.social_image
 		});
 	});
-	// console.log(response)
 	return response;
 };

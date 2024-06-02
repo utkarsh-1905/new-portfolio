@@ -94,3 +94,29 @@ a:hover {
 .swiper-pagination-bullet-active {
 	background-color: var(--font) !important;
 }
+
+/* Changing scroll bar */
+
+:root::-webkit-scrollbar {
+	width: 1.5rem;
+}
+
+:root::-webkit-scrollbar-thumb {
+	background: var(--bg);
+	box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
+			var(--neumorph-doffset),
+		inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
+			var(--neumorph-blur-radius) var(--neumorph-loffset);
+	border-radius: 15px;
+	background-clip: padding-box;
+	border: 4px double var(--font);
+}
+
+:root::-webkit-scrollbar-track {
+	padding: 1.25rem;
+	background: var(--bg);
+	box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
+			var(--neumorph-doffset),
+		calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
+			var(--neumorph-blur-radius) var(--neumorph-loffset);
+}

@@ -4,7 +4,7 @@
 	$loading = false;
 </script>
 
-<div class="container">
+<div class="container" id="contact">
 	<h1>contact me</h1>
 	<div class="lottie-container">
 		<!-- <div class="lottie" bind:this={lottieContainer}></div> -->
@@ -13,10 +13,10 @@
 			on:click={() => {
 				Calendly.initPopupWidget({ url: 'https://calendly.com/heyutkarsh/30min' });
 				return false;
-			}}>Calendly Meet!!</button
+			}}>let's meet</button
 		>
 	</div>
-	<p class="helper-text">or</p>
+	<p class="helper-text">for any queries, please fill the below form, i usually respond within the same business day</p>
 	<form action="https://api.web3forms.com/submit" method="post" class="contact">
 		<input type="hidden" name="access_key" value="d6a0ccc5-4cb8-4d11-8049-a220977183fc" />
 		<input type="hidden" name="subject" value="Someone wants to contact me" />
@@ -102,9 +102,9 @@
 			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
 				var(--neumorph-blur-radius) var(--neumorph-loffset);
 		color: var(--light-font);
-		font-size: large;
+		font-size: medium;
 		cursor: pointer;
-		margin-top: 5rem;
+		margin-top: 2rem;
 	}
 
 	.calendly {
@@ -115,8 +115,10 @@
 	}
 
 	.helper-text {
-		font-size: 1.25rem;
+		font-size: medium;
 		padding: 0.75rem;
+		width: 80%;
+		text-align: left;
 	}
 
 	.submit:hover {

@@ -5,19 +5,8 @@
 	import { loading } from '$lib/loading';
 	import { navigating } from '$app/stores';
 	import LoadingPage from '$lib/loadingPage.svelte';
-	import { onMount } from 'svelte';
 
 	$: $loading = !!$navigating; //loading pages
-
-	onMount(() => {
-		const cursor: Element | null = document.querySelector('.cursor');
-		const positionElement = (e: MouseEvent) => {
-			const mouseY = e.clientY;
-			const mouseX = e.clientX;
-			cursor!.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-		};
-		// window.addEventListener('mousemove', positionElement)
-	});
 </script>
 
 <svelte:head>
@@ -58,7 +47,6 @@
 	<LoadingPage />
 {:else}
 	<div class="body-align">
-		<!-- <div class="cursor">&nbsp;</div> -->
 		<main>
 			<slot />
 		</main>
@@ -67,21 +55,6 @@
 {/if}
 
 <style>
-	.cursor {
-		z-index: -100;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		width: 55px;
-		height: 55px;
-		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		border-radius: 50%;
-		user-select: none;
-	}
 
 	main {
 		width: 80vw;

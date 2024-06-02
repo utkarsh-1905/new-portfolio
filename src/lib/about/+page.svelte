@@ -5,21 +5,23 @@
 	import Resume from '$lib/experiencePages/resume.svelte';
 	import Work from '$lib/experiencePages/work.svelte';
 	import About from '$lib/experiencePages/about.svelte';
-	export let data: any;
+	export let repos: any;
+	export let projects: any;
+	export let experience: any;
 	let active: string;
 </script>
 
-<div class="container">
+<div class="container" id="about">
 	<About />
 	<!-- add projects, github repos, previous work experience. and resume-->
 	<!-- lang i use and github contri chart at bottom -->
 	<Tabs bind:activeTab={active} />
 	{#if active === 'projects'}
-		<Projects />
-	{:else if active === 'github'}
-		<Github bind:repo={data.repos} />
+		<Projects {projects}/>
 	{:else if active === 'work'}
-		<Work />
+		<Work works={experience}/>
+	{:else if active === 'github'}
+		<Github bind:repo={repos} />
 	{:else if active === 'resume'}
 		<Resume />
 	{/if}
