@@ -123,11 +123,20 @@
 			height: auto;
 			padding: 0;
 		}
+		.socials{
+			flex-direction: column;
+		}
+		.icons{
+			margin-top: 1rem;
+		}
 		.social-icon {
 			width: 18px;
 		}
 		.cpy {
-			width: 50%;
+			width: 100%;
+		}
+		.footer-text{
+			font-size: small;
 		}
 	}
 
@@ -139,12 +148,7 @@
 
 	@media screen and (max-width: 350px) {
 		.cpy {
-			display: none;
-		}
-
-		.socials {
-			flex-direction: row;
-			justify-content: center;
+			font-size: x-small;
 		}
 	}
 </style>

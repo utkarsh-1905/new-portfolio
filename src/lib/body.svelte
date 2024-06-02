@@ -92,7 +92,7 @@
 
 	.buttons {
 		display: flex;
-		margin-top: 10rem;
+		margin-top: 8rem;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
@@ -153,17 +153,23 @@
 		.title {
 			font-size: 2rem;
 			letter-spacing: 0;
-			margin-top: 15rem;
+			padding-top: 3rem;
 		}
 		.subtitle {
 			font-size: 1.1rem;
 		}
 		.buttons {
 			width: 100%;
+			flex-direction: column;
+			justify-content: space-between;
+			margin-top: 5rem;
 		}
 		.social {
-			padding: 0.25rem 0.5rem;
+			padding: 0.75rem;
 			justify-content: space-between;
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+			width: 30%;
 		}
 
 		.social-icon{
