@@ -44,6 +44,8 @@
 			time: 'May-July 2022'
 		}
 	];
+
+	export let experience;
 </script>
 
 <div class="container">

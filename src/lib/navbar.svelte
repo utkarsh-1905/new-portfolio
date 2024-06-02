@@ -64,7 +64,7 @@
 	<ul class="normal">
 		<li><a href="#contact">contact</a></li>
 		<li><a href="#about">about</a></li>
-		<li><a href="#">home</a></li>
+		<li><a href="#"><img src="/favicon-32x32.png" width="24px" alt="utkarsh"/></a></li>
 		<li><a href="#blogs">blogs</a></li>
 		<Theme />
 	</ul>
@@ -72,6 +72,7 @@
 		class="hamburger"
 		src="/hamburger.svg"
 		on:click={checkDrawer}
+		on:keydown={checkDrawer}
 		width="32px"
 		alt="hamburger menu"
 	/>
@@ -81,12 +82,14 @@
 </nav>
 <div class="toggleMenu">
 	<div class="invert">
-		<img src="/shortDown.svg" on:click={closeDrawer} class="close" width="32px" alt="close" />
+		<img src="/shortDown.svg" on:click={closeDrawer} on:keydown={closeDrawer} class="close" width="32px" alt="close" />
 		<ul class="responsive">
-			<li><a href="/" on:click={closeDrawer}>home</a></li>
-			<li><a href="/about" on:click={closeDrawer}>about</a></li>
-			<li><a href="/contact" on:click={closeDrawer}>contact</a></li>
-			<li><a href="/blogs" on:click={closeDrawer}>blogs</a></li>
+			<li><a href="#" on:click={closeDrawer}>
+				<img src="/favicon-32x32.png" width="24px" alt="utkarsh"/>
+			</a></li>
+			<li><a href="#about" on:click={closeDrawer}>about</a></li>
+			<li><a href="#contact" on:click={closeDrawer}>contact</a></li>
+			<li><a href="#blogs" on:click={closeDrawer}>blogs</a></li>
 		</ul>
 	</div>
 </div>

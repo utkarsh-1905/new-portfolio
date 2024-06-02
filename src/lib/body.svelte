@@ -28,14 +28,14 @@
 	{#if typewritterDone}
 		<h2 class="show-on-done subtitle">developer &#x2022; student &#x2022; speaker</h2>
 		<div class="buttons">
-			<a href="/about" class="about show-on-done">projects</a>
-			<button
-				class="calendly show-on-done"
-				on:click={() => {
-					Calendly.initPopupWidget({ url: 'https://calendly.com/heyutkarsh/30min' });
-					return false;
-				}}>calendly meet</button
-			>
+			<a href="https://github.com/utkarsh-1905" target="_blank" rel="noreferrer" class="social show-on-done">
+				<img class="social-icon social-left" src="/github.svg" width="24px" alt="github" />
+				github</a>
+			<a href="https://www.linkedin.com/in/utkarsh1905/" target="_blank" rel="noreferrer" class="social show-on-done">
+				<img class="social-icon" src="/linkedin.svg" width="24px" alt="linkedin" />
+				linkedin</a>
+			<a href="https://x.com/utripathi2002" target="_blank" rel="noreferrer" class="social show-on-done">
+				<img class="social-icon" src="/twitter.svg" width="24px" alt="twitter"/> twitter</a>
 		</div>
 		<p class="aboutme" />
 	{/if}
@@ -92,9 +92,11 @@
 		justify-content: space-around;
 		width: 60%;
 	}
-
-	.about,
-	.calendly {
+	.social {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
 		padding: 1rem 1.5rem;
 		border-radius: 15px;
 		background: var(--bg);
@@ -105,10 +107,9 @@
 		color: var(--light-font);
 		cursor: pointer;
 		border: none;
+		font-size: small;
 	}
-
-	.about:hover,
-	.calendly:hover {
+	.social:hover {
 		border-radius: 15px;
 		background: var(--bg);
 		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
@@ -117,6 +118,10 @@
 				var(--neumorph-blur-radius) var(--neumorph-loffset);
 	}
 
+	.social-icon{
+		margin-right: 1rem;
+	}
+	
 	@keyframes fromAbove {
 		0% {
 			transform: translateY(-100%);
@@ -150,8 +155,7 @@
 		.buttons {
 			width: 100%;
 		}
-		.about,
-		.calendly {
+		.social {
 			padding: 0.25rem 0.5rem;
 			justify-content: space-between;
 		}

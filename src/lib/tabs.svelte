@@ -14,23 +14,29 @@
 	<div
 		class={activeTab === 'projects' ? 'tab selected' : 'tab'}
 		on:click={handleClick}
+		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 		data-tab="projects"
 	>
 		projects
 	</div>
+	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} 
+		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
+		data-tab="work"
+	>
+		experience
+	</div>
 	<div
 		class={activeTab === 'github' ? 'tab selected' : 'tab'}
 		on:click={handleClick}
+		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 		data-tab="github"
 	>
 		github
 	</div>
-	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} data-tab="work">
-		experience
-	</div>
 	<div
 		class={activeTab === 'resume' ? 'tab selected' : 'tab'}
 		on:click={handleClick}
+		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 		data-tab="resume"
 	>
 		resume

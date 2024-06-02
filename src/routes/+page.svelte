@@ -6,11 +6,13 @@
 	export let data: any;
 	const blogs = data.blogs;
 	const repos = data.repos;
+	const projects = data.projects;
+	const experience = data.experience;
 </script>
 
 <div class="container">
 	<Body />
-	<About data={repos}/>
+	<About repos={repos} projects={projects} experience={experience}/>
 	<Blogs data={blogs}/>
 	<Contact />
 </div>
