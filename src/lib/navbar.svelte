@@ -127,7 +127,7 @@
 		z-index: 100;
 		/* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
 	}
-	/* 
+	/*
     .scrolled-down{
         transform:translateY(-100%) !important; transition: all 0.3s ease-in-out;
     }

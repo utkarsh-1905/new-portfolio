@@ -19,7 +19,7 @@
 	>
 		projects
 	</div>
-	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} 
+	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick}
 		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 		data-tab="work"
 	>

@@ -22,12 +22,12 @@
 			<div class="project-card">
 				<div class="project-info">
 					<a href={project.github} target="_blank" rel="noreferrer"
-						><h3>{project.name} &#x2197; 
+						><h3>{project.name} &#x2197;
 						 {#if project.stars}
 							<span>&#x2197;  {project.stars} ⭐</span>
 						 {/if}
 						</h3>
-						
+
 						</a
 					>
 					<p>{project.description}</p>
