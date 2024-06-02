@@ -115,8 +115,9 @@
 	}
 
 	nav {
-		margin-top: 1.5rem;
+		padding-top: 0.5rem;
 		position: fixed;
+		top: 90%;
 		width: 100vw;
 		background-color: var(--bg);
 		top: 0;

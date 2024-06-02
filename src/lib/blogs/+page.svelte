@@ -22,7 +22,7 @@
 				pagination={{ clickable: true }}
 				breakpoints={{
 					280: {
-						slidesPerView: 2
+						slidesPerView: 1
 					},
 					586: {
 						slidesPerView: 2,

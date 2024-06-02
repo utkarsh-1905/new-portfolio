@@ -159,5 +159,9 @@
 			padding: 0.25rem 0.5rem;
 			justify-content: space-between;
 		}
+
+		.social-icon{
+			width: 16px;
+		}
 	}
 </style>
