@@ -1,7 +1,11 @@
+<script lang="ts">
+	export let resume: any;
+</script>
+
 <div class="container">
 	<iframe
 		class="pdf"
-		src="https://rvrlhaxjrzkjdzoktvdi.supabase.co/storage/v1/object/public/resume/lts/resume.pdf"
+		src={resume.data.publicUrl}
 		style="border:none;"
 		title="resume"
 	/>

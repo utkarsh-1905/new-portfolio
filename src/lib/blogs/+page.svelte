@@ -40,12 +40,11 @@
 				loop={true}
 				speed={1000}
 			>
-				{#each data.medBlogs as blog}
-					<SwiperSlide><BlogCard {...blog} /></SwiperSlide>
-				{/each}
-				{#each data.devBlogs as blog}
-					<SwiperSlide><BlogCard {...blog} /></SwiperSlide>
-				{/each}
+				{#if data.length !== 0}
+					{#each data as blog}
+						<SwiperSlide><BlogCard {...blog} /></SwiperSlide>
+					{/each}
+				{/if}
 			</Swiper>
 		</div>
 	</div>

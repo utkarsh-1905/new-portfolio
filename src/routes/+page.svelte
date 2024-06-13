@@ -8,11 +8,12 @@
 	const repos = data.repos;
 	const projects = data.projects;
 	const experience = data.experience;
+	const resume = data.resume;
 </script>
 
 <div class="container">
 	<Body />
-	<About repos={repos} projects={projects} experience={experience}/>
+	<About repos={repos} projects={projects} experience={experience} resume={resume}/>
 	<Blogs data={blogs}/>
 	<Contact />
 </div>

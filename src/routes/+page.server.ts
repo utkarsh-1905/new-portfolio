@@ -1,13 +1,9 @@
-import { mediumBlogs, devtoBlogs } from '$lib/fetchBlogs';
 import { loading } from '$lib/loading';
 import { getRepos } from '$lib/github_api';
-// import { Database } from '$lib/supabase';
 import { createClient } from '@supabase/supabase-js';
 
 export async function load() {
 	try {
-		const medBlogs = await mediumBlogs();
-		const devBlogs = await devtoBlogs();
 		const repos = await getRepos();
 		repos.sort((a: any, b: any) => {
 			const d1: any = new Date(a.updated_at);
@@ -38,18 +34,21 @@ export async function load() {
 			console.log(expError);
 		}
 
-		const st = await supabase.storage.from('resume').list();
-		console.log(st);
+		const { data: blogs, error: blogError } = await supabase.from('blogs').select('*');
+
+		if (blogError) {
+			console.log(blogError);
+		}
+
+		const resume = supabase.storage.from('resume').getPublicUrl('lts/resume.pdf');
 
 		loading.set(false);
 		return {
-			blogs: {
-				medBlogs,
-				devBlogs
-			},
+			blogs,
 			repos,
 			projects,
-			experience
+			experience,
+			resume
 		};
 	} catch (err) {
 		console.log(err);

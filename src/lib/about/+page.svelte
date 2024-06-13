@@ -8,6 +8,7 @@
 	export let repos: any;
 	export let projects: any;
 	export let experience: any;
+	export let resume: any;
 	let active: string;
 </script>
 
@@ -23,7 +24,7 @@
 	{:else if active === 'github'}
 		<Github bind:repo={repos} />
 	{:else if active === 'resume'}
-		<Resume />
+		<Resume resume={resume}/>
 	{/if}
 </div>
 

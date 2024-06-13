@@ -12,7 +12,7 @@
 	});
 </script>
 
-<div on:click={navigateToBlog(link)} class="container">
+<div on:click={navigateToBlog(link)} on:keypress={navigateToBlog(link)}  class="container">
 	<div class="blog">
 		<img class="blog-header" src={thumbnail} alt={title} />
 		<small>{title}</small>
