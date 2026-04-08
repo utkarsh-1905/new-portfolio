@@ -1,0 +1,7 @@
+# Wrangler local dev env vars — copy to .dev.vars and fill in values
+# Picked up automatically by: wrangler pages dev .svelte-kit/cloudflare
+
+VITE_DEVTO=
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REFRESH_TOKEN=

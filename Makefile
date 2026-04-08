@@ -1,13 +1,17 @@
-IMAGE  ?= portfolio
-PORT   ?= 3000
+PROJECT ?= portfolio
 
-.PHONY: dev build preview lint format check clean \
-        deploy deploy-preview spotify-auth
+.PHONY: dev dev-cf build preview lint format check clean \
+        deploy deploy-preview secrets secrets-list spotify-auth
 
 # ── Local dev ─────────────────────────────────────────────────
 
 dev:
 	npm run dev
+
+# Run with actual Cloudflare Workers runtime locally
+# Reads .dev.vars automatically — copy .dev.vars.example to .dev.vars first
+dev-cf: build
+	npx wrangler pages dev .svelte-kit/cloudflare
 
 build:
 	npm run build
@@ -34,10 +38,21 @@ clean:
 spotify-auth:
 	node scripts/spotify-auth.js
 
-# ── Cloudflare Pages ──────────────────────────────────────────
+# ── Cloudflare Pages — secrets ────────────────────────────────
+# 1. Copy secrets.example.json to secrets.json and fill in values
+# 2. Run: make secrets
+# This uploads all keys to the Cloudflare Pages project at once.
+
+secrets:
+	npx wrangler pages secret bulk secrets.json --project-name=$(PROJECT)
+
+secrets-list:
+	npx wrangler pages secret list --project-name=$(PROJECT)
+
+# ── Cloudflare Pages — deploy ─────────────────────────────────
 
 deploy: build
-	npx wrangler pages deploy .svelte-kit/cloudflare --project-name=portfolio
+	npx wrangler pages deploy .svelte-kit/cloudflare --project-name=$(PROJECT)
 
 deploy-preview: build
-	npx wrangler pages deploy .svelte-kit/cloudflare --project-name=portfolio --branch=preview
+	npx wrangler pages deploy .svelte-kit/cloudflare --project-name=$(PROJECT) --branch=preview
