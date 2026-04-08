@@ -1,74 +1,90 @@
 <script lang="ts">
-	export let title: string =
-		'My tech blog explaining alot of tech which you must read !! It is a really long long string';
+	export let title: string = 'Untitled post';
 	export let link: string;
 	export let thumbnail: string;
-	let navigateToBlog: any;
-	import { onMount } from 'svelte';
-	onMount(() => {
-		navigateToBlog = (link: string) => {
-			window.open(link, '_blank');
-		};
-	});
 </script>
 
-<div on:click={navigateToBlog(link)} class="container">
-	<div class="blog">
-		<img class="blog-header" src={thumbnail} alt={title} />
-		<small>{title}</small>
+<a href={link} target="_blank" rel="noreferrer" class="card">
+	<div class="img-wrap">
+		<img src={thumbnail} alt={title} class="thumb" loading="lazy" />
 	</div>
-</div>
+	<div class="info">
+		<p class="title">{title}</p>
+		<span class="read-more">read more ↗</span>
+	</div>
+</a>
 
 <style>
-	.container {
-		/* width:95%; */
-		width: 17rem;
-		height: 70%;
-		margin: 0 1rem;
+	.card {
 		display: flex;
 		flex-direction: column;
-		flex-wrap: wrap;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+		width: 16rem;
+		border-radius: var(--radius-lg);
 		background: var(--bg);
-		border-radius: 15px;
+		box-shadow: var(--shadow-raised);
+		overflow: hidden;
+		transition: box-shadow 0.25s ease, transform 0.25s ease;
+		cursor: pointer;
+		text-decoration: none;
 	}
-	.blog {
+
+	.card:hover {
+		box-shadow: var(--shadow-inset);
+		transform: translateY(2px);
+	}
+
+	.img-wrap {
+		width: 100%;
+		height: 130px;
+		overflow: hidden;
+		flex-shrink: 0;
+	}
+
+	.thumb {
 		width: 100%;
 		height: 100%;
+		object-fit: cover;
+		display: block;
+		filter: brightness(0.92) saturate(0.9);
+		transition: filter 0.3s ease;
+	}
+
+	.card:hover .thumb {
+		filter: brightness(1) saturate(1);
+	}
+
+	.info {
+		padding: 0.875rem 1rem;
 		display: flex;
 		flex-direction: column;
-		flex-wrap: wrap;
-		text-align: center;
-		justify-content: space-between;
-		align-items: center;
+		gap: 0.5rem;
+		flex: 1;
 	}
 
-	.blog-header {
-		width: 100%;
-		height: 60%;
-		border-radius: 15px 15px 0 0;
-		cursor: pointer;
-		filter: grayscale(15%);
+	.title {
+		font-size: 0.8rem;
+		color: var(--sub-font);
+		line-height: 1.5;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 
-	small {
-		margin-bottom: 2rem;
-		text-transform: lowercase;
-		cursor: pointer;
-	}
-
-	@media screen and (max-width: 1084px) {
-		small {
-			font-size: x-small;
-		}
+	.read-more {
+		font-size: 0.72rem;
+		color: var(--font);
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		margin-top: auto;
 	}
 
 	@media screen and (max-width: 768px) {
-		small {
-			font-size: xx-small;
+		.card {
+			width: 13rem;
+		}
+		.img-wrap {
+			height: 110px;
 		}
 	}
 </style>

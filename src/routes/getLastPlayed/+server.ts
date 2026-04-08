@@ -1,42 +1,43 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import axios from 'axios';
+import { getAccessToken } from '$lib/server/spotify';
 
 export const GET: RequestHandler = async () => {
-	const response = await axios.get('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
-		headers: {
-			'Content-Type': 'application/json;charset=utf-8',
-			Authorization: `Bearer ${import.meta.env.VITE_SPOTIFY_OAUTH}`,
-			Redirect: 'follow'
-		}
-	});
-	console.log(response);
-	if (response.status === 200) {
-		// Suggestion (check for correctness before using):
-		// return new Response(response.data, {
-		//     status: response.status,
-		//     headers: {
-		//         'Content-Type': 'application/json;charset=utf-8',
-		//     }
-		// });
-		// return ({
-		//     status: response.status,
-		//     body: response.data,
-		//     headers:{
-		//         'Content-Type': 'application/json;charset=utf-8',
-		//     }
-		// })
-		return new Response(JSON.stringify(response.data), {
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
-			},
-			status: response.status
-		});
-	} else {
-		return new Response('I am not listening to music right now!!', {
-			status: response.status,
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
-			}
+	const token = await getAccessToken();
+	if (!token) {
+		return new Response(JSON.stringify(null), {
+			headers: { 'Content-Type': 'application/json' }
 		});
 	}
+
+	const res = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
+		headers: { Authorization: `Bearer ${token}` }
+	});
+
+	if (!res.ok) {
+		return new Response(JSON.stringify(null), {
+			headers: { 'Content-Type': 'application/json' }
+		});
+	}
+
+	const data = await res.json();
+	const item = data.items?.[0];
+	if (!item) {
+		return new Response(JSON.stringify(null), {
+			headers: { 'Content-Type': 'application/json' }
+		});
+	}
+
+	return new Response(
+		JSON.stringify({
+			name: item.track.name,
+			artist: item.track.artists.map((a: { name: string }) => a.name).join(', '),
+			albumArt:
+				item.track.album.images?.[1]?.url ?? item.track.album.images?.[0]?.url ?? null,
+			url: item.track.external_urls?.spotify ?? null,
+			playedAt: item.played_at
+		}),
+		{
+			headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' }
+		}
+	);
 };

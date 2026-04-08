@@ -1,46 +1,29 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	export let activeTab: string = 'work';
-	let handleClick: any;
-	onMount(() => {
-		handleClick = (e: any) => {
-			activeTab = e.target.dataset.tab;
-		};
-	});
+
+	const tabs = [
+		{ id: 'work', label: 'experience' },
+		{ id: 'projects', label: 'projects' },
+		{ id: 'certs', label: 'certifications' },
+		{ id: 'resume', label: 'resume' }
+	];
 </script>
 
-<div class="tabs">
-	<!-- <div class={activeTab === "about" ? "tab selected" : "tab"} on:click={handleClick} data-tab="about" >about me</div> -->
-	<div class={activeTab === 'work' ? 'tab selected' : 'tab'} on:click={handleClick} 
-		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
-		data-tab="work"
-	>
-		experience
-	</div>
-	<div
-		class={activeTab === 'projects' ? 'tab selected' : 'tab'}
-		on:click={handleClick}
-		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
-		data-tab="projects"
-	>
-		projects
-	</div>
-	<div
-		class={activeTab === 'github' ? 'tab selected' : 'tab'}
-		on:click={handleClick}
-		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
-		data-tab="github"
-	>
-		github
-	</div>
-	<div
-		class={activeTab === 'resume' ? 'tab selected' : 'tab'}
-		on:click={handleClick}
-		on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
-		data-tab="resume"
-	>
-		resume
-	</div>
+<div class="tabs" role="tablist">
+	{#each tabs as tab}
+		<button
+			role="tab"
+			aria-selected={activeTab === tab.id}
+			class="tab"
+			class:active={activeTab === tab.id}
+			on:click={() => (activeTab = tab.id)}
+		>
+			{tab.label}
+			{#if activeTab === tab.id}
+				<span class="indicator"></span>
+			{/if}
+		</button>
+	{/each}
 </div>
 
 <style>
@@ -48,41 +31,68 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: center;
+		gap: 0.5rem;
 		width: 100%;
-		margin-top: 1.5rem;
-		padding: 0.75rem;
-		border-bottom: 1px solid #a36a4f;
+		margin-top: 2.5rem;
+		padding: 0.6rem 0.75rem;
+		border-radius: var(--radius-lg);
+		background: var(--bg);
+		box-shadow: var(--shadow-inset);
 	}
+
 	.tab {
+		position: relative;
+		background: transparent;
+		border: none;
 		cursor: pointer;
-		padding: 0.5rem;
-		transition: all 0.3s ease-in;
+		padding: 0.7rem 1.5rem;
+		border-radius: var(--radius-md);
+		color: var(--muted);
+		font-size: 0.85rem;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		transition: color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 5px;
+		flex: 1;
+		white-space: nowrap;
+	}
+
+	.tab:hover {
+		color: var(--sub-font);
+	}
+
+	.tab.active {
+		background: var(--bg);
+		box-shadow: var(--shadow-raised);
 		color: var(--font);
 	}
-	.selected {
-		font-weight: 900;
-		font-size: large;
+
+	.indicator {
+		display: block;
+		width: 18px;
+		height: 2px;
+		background: var(--font);
+		border-radius: 2px;
 	}
 
 	@media screen and (max-width: 576px) {
 		.tab {
-			font-size: 0.8rem;
+			font-size: 0.75rem;
+			padding: 0.5rem 0.75rem;
 		}
 	}
-	@media screen and (max-width: 400px) {
+
+	@media screen and (max-width: 380px) {
 		.tabs {
-			width: 100vw !important;
-			padding: 0;
+			gap: 0.25rem;
 		}
 		.tab {
-			padding: 0;
-			margin-bottom: 0.5rem;
-		}
-	}
-	@media screen and (max-width: 340px) {
-		.tab {
-			font-size: x-small;
+			font-size: 0.7rem;
+			padding: 0.4rem 0.5rem;
 		}
 	}
 </style>

@@ -1,21 +1,11 @@
-// import adapter from '@sveltejs/adapter-auto';
-// import adapter from '@sveltejs/adapter-cloudflare';
 import adapter from '@sveltejs/adapter-node';
-import preprocess from 'svelte-preprocess';
-import ESBuildNodePolyfillsPlugin from 'esbuild-plugin-node-polyfills';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: preprocess(),
-
+	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter()
-		// adapter: adapter({
-		// 	Plugin: [ESBuildNodePolyfillsPlugin]
-		// })
-		// vite: { optimizeDeps: { include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'] } }
 	}
 };
 

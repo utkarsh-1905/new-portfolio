@@ -1,122 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css');
-@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css');
-/* eae1e1 */
 
+/* ============================================================
+   DESIGN TOKENS — Neumorphic Dark (default)
+   ============================================================ */
 :root {
-	--neumorph-blur-radius: 6px;
-	--neumorph-distance: 5px;
-	--bg: #252523;
-	--font: #ffba49;
-	--sub-font: #f7f0f5;
-	--neumorph-doffset: #1f1f1e;
-	--neumorph-loffset: #2b2b28;
-	--accent: #000;
+	/* Core palette */
+	--bg: #f0ece4;
+	--neumorph-doffset: #ccc7bc;
+	--neumorph-loffset: #ffffff;
+	--neumorph-blur-radius: 14px;
+	--neumorph-distance: 6px;
+
+	/* Typography */
+	--font: #1a0a3c;
+	--sub-font: #2e2248;
+	--muted: #8c7fa0;
+
+	/* Accents */
+	--accent: #7c3aed;
+	--accent-glow: rgba(124, 58, 237, 0.18);
+	--font-glow: rgba(26, 10, 60, 0.1);
+
+	/* Icon filter */
+	--icon-filter: brightness(0) opacity(0.65);
+
+	/* Shadow shorthands */
+	--nd: var(--neumorph-distance);
+	--nb: var(--neumorph-blur-radius);
+
+	--shadow-raised:
+		calc(var(--nd)) calc(var(--nd)) var(--nb) var(--neumorph-doffset),
+		calc(-1 * var(--nd)) calc(-1 * var(--nd)) var(--nb) var(--neumorph-loffset);
+
+	--shadow-inset:
+		inset calc(var(--nd)) calc(var(--nd)) var(--nb) var(--neumorph-doffset),
+		inset calc(-1 * var(--nd)) calc(-1 * var(--nd)) var(--nb) var(--neumorph-loffset);
+
+	/* Radius */
+	--radius-sm: 8px;
+	--radius-md: 14px;
+	--radius-lg: 20px;
+	--radius-pill: 100px;
+
 }
 
-body {
-	background-color: var(--bg);
-	font-family: 'Cascadia Code', sans-serif;
-	width: 100vw;
-	min-height: 100vh;
-	overflow-x: hidden;
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after {
+	box-sizing: border-box;
 	margin: 0;
-	display: flex;
-	flex-direction: column;
+	padding: 0;
 }
 
 html {
 	scroll-behavior: smooth;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-ul,
-li,
-td,
-th,
-tr,
-table,
-div,
-span,
-input,
-button,
-textarea,
-button {
-	margin: 0;
-	padding: 0;
-	font-family: 'Cascadia Code', sans-serif;
+body {
+	background-color: var(--bg);
+	font-family: 'Space Grotesk', system-ui, sans-serif;
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Space Grotesk', system-ui, sans-serif;
 	color: var(--font);
+	font-weight: 600;
+	line-height: 1.2;
 }
 
-p,
-a,
-span,
-div {
+p, span, div, li, td, th, tr, label {
 	color: var(--sub-font);
+	font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 
-a,
-a:active,
-a:focus,
-a:hover {
+code, pre, .mono {
+	font-family: 'Cascadia Code', 'Fira Code', monospace;
+}
+
+a, a:active, a:focus, a:hover {
 	text-decoration: none;
 	outline: none;
 	color: var(--font);
-	font-weight: normal;
 }
 
-.swiper {
-	height: 100%;
+ul, ol { list-style: none; }
+
+input, button, textarea, select {
+	font-family: 'Space Grotesk', system-ui, sans-serif;
 }
+
+/* ============================================================
+   SECTION HEADING — used in about/blogs/contact
+   ============================================================ */
+.section-heading {
+	font-size: clamp(1.4rem, 3vw, 1.9rem);
+	font-weight: 700;
+	color: var(--font);
+	letter-spacing: 0.06em;
+	text-transform: lowercase;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.section-heading::after {
+	content: '';
+	display: block;
+	width: 2.5rem;
+	height: 3px;
+	background: var(--font);
+	border-radius: 3px;
+	opacity: 0.6;
+}
+
+/* ============================================================
+   SWIPER
+   ============================================================ */
+.swiper { height: 100%; }
 
 .swiper-slide {
 	height: 100%;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
 
+.swiper-pagination-bullet {
+	background-color: var(--muted) !important;
+	opacity: 1;
+}
+
 .swiper-pagination-bullet-active {
 	background-color: var(--font) !important;
+	width: 22px !important;
+	border-radius: 4px !important;
 }
 
-/* Changing scroll bar */
-
-:root::-webkit-scrollbar {
-	width: 1.5rem;
-}
-
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+:root::-webkit-scrollbar { width: 6px; }
+:root::-webkit-scrollbar-track { background: var(--bg); }
 :root::-webkit-scrollbar-thumb {
-	background: var(--bg);
-	box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-			var(--neumorph-doffset),
-		inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-			var(--neumorph-blur-radius) var(--neumorph-loffset);
-	border-radius: 15px;
-	background-clip: padding-box;
-	border: 4px double var(--font);
+	background: var(--neumorph-loffset);
+	border-radius: var(--radius-pill);
+}
+:root::-webkit-scrollbar-thumb:hover {
+	background: var(--muted);
 }
 
-:root::-webkit-scrollbar-track {
-	padding: 1.25rem;
-	background: var(--bg);
-	box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-			var(--neumorph-doffset),
-		calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-			var(--neumorph-blur-radius) var(--neumorph-loffset);
+/* ============================================================
+   ANCHOR SCROLL OFFSET — accounts for fixed navbar (52px)
+   ============================================================ */
+#home, #about, #blogs, #contact {
+	scroll-margin-top: 64px;
+}
+
+/* ============================================================
+   ICON FILTER — makes white SVGs readable in light mode
+   ============================================================ */
+.social-btn img,
+.icon-btn img,
+.brand-btn img,
+.nav-pill img {
+	filter: var(--icon-filter);
+	transition: filter 0.3s ease;
+}
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+	from { opacity: 0; transform: translateY(16px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+	animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

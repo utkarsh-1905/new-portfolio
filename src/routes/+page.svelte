@@ -5,14 +5,14 @@
 	import About from "$lib/about/+page.svelte";
 	export let data: any;
 	const blogs = data.blogs;
-	const repos = data.repos;
 	const projects = data.projects;
 	const experience = data.experience;
+	const certs = data.certs;
 </script>
 
 <div class="container">
 	<Body />
-	<About repos={repos} projects={projects} experience={experience}/>
+	<About {projects} {experience} {certs} />
 	<Blogs data={blogs}/>
 	<Contact />
 </div>

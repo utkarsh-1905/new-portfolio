@@ -1,118 +1,148 @@
 <script lang="ts">
-	export let repo: any;
+	export let repo: any[];
+
 	function getUpdatedTime(time: string) {
-		let date_prev = new Date(time);
-		return date_prev.toDateString();
+		return new Date(time).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 	}
 </script>
 
 <div class="container">
-	<!-- <img class="gh-calender" src="https://raw.githubusercontent.com/utkarsh-1905/utkarsh-1905/output/github-contribution-grid-snake.svg" alt="snake eating my contributions, i am sad"/> -->
-	<!-- this only looks good in dark mode -->
-	<div class="repo-table">
-		<div class="table">
-			<div class="row">
-				<div class="cl cl-head cl-number">s.no</div>
-				<div class="cl cl-head cl-name">repo</div>
-				<div class="cl cl-head cl-lang">language</div>
-				<div class="cl cl-head cl-updated">updated</div>
-			</div>
-			{#each repo as data}
-				<div class="row">
-					<div class="cl cl-number">{data.id}</div>
-					<div class="cl cl-name">
-						<a href={data.url} target="_blank" rel="noreferrer">{data.name} &#x2197;</a>
-					</div>
-					<div class="cl cl-lang">{data.language}</div>
-					<div class="cl cl-updated">{getUpdatedTime(data.updated_at)}</div>
-				</div>
-			{/each}
+	<div class="table-wrap">
+		<div class="table-header row">
+			<span class="col num">#</span>
+			<span class="col name">repository</span>
+			<span class="col lang">language</span>
+			<span class="col updated hide-mobile">updated</span>
 		</div>
+		{#each repo as data}
+			<div class="row data-row">
+				<span class="col num muted">{data.id}</span>
+				<span class="col name">
+					<a href={data.url} target="_blank" rel="noreferrer" class="repo-link">
+						{data.name}
+						<span class="arrow">&#x2197;</span>
+					</a>
+				</span>
+				<span class="col lang">
+					{#if data.language}
+						<span class="lang-badge">{data.language}</span>
+					{:else}
+						<span class="muted">—</span>
+					{/if}
+				</span>
+				<span class="col updated hide-mobile muted">{getUpdatedTime(data.updated_at)}</span>
+			</div>
+		{/each}
 	</div>
 </div>
 
 <style>
 	.container {
 		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		padding-bottom: 2rem;
 	}
-	.repo-table {
-		width: 100%;
-		margin-top: 2rem;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+
+	.table-wrap {
+		margin-top: 1.5rem;
 		background: var(--bg);
-		border-radius: 15px;
-		padding: 1rem;
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-raised);
+		overflow: hidden;
+		padding: 0.5rem;
 	}
-	.table {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+
 	.row {
-		display: flex;
-		width: 100%;
-		flex-direction: row;
+		display: grid;
+		grid-template-columns: 48px 1fr 120px 130px;
 		align-items: center;
-		justify-content: space-between;
-		margin-top: 1rem;
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		border-radius: 15px;
+		padding: 0.6rem 0.75rem;
+		border-radius: var(--radius-md);
+	}
+
+	.table-header {
 		background: var(--bg);
+		box-shadow: var(--shadow-inset);
+		margin-bottom: 0.4rem;
 	}
-	.table > div:first-of-type {
-		margin-top: 0;
+
+	.table-header .col {
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--muted);
 	}
-	.cl {
-		/* border: 1px solid black; */
+
+	.data-row {
+		transition: background 0.15s ease;
+	}
+
+	.data-row:hover {
+		background: var(--bg);
+		box-shadow: var(--shadow-inset);
+	}
+
+	.col {
+		font-size: 0.83rem;
+		color: var(--sub-font);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		padding-right: 0.5rem;
+	}
+
+	.num {
 		text-align: center;
-		padding: 1rem;
+		font-size: 0.75rem;
 	}
-	.cl-number {
-		width: 10%;
+
+	.muted {
+		color: var(--muted);
+		font-size: 0.78rem;
 	}
-	.cl-name {
-		width: 50%;
+
+	.repo-link {
+		color: var(--font);
+		font-size: 0.85rem;
+		font-weight: 500;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.2rem;
 	}
-	.cl-lang {
-		width: 20%;
+
+	.repo-link:hover {
+		color: var(--accent);
 	}
-	.cl-updated {
-		width: 20%;
+
+	.arrow {
+		font-size: 0.75rem;
+		opacity: 0.6;
 	}
-	@media screen and (max-width: 470px) {
-		.repo-table {
-			width: 85vw !important;
+
+	.lang-badge {
+		font-size: 0.72rem;
+		padding: 0.2rem 0.55rem;
+		border-radius: var(--radius-pill);
+		background: var(--bg);
+		box-shadow: var(--shadow-inset);
+		color: var(--sub-font);
+		font-family: 'Cascadia Code', monospace;
+		white-space: nowrap;
+	}
+
+	@media screen and (max-width: 560px) {
+		.row {
+			grid-template-columns: 40px 1fr 100px;
 		}
-		.repo-table {
-			padding: 0.5rem;
-		}
-		.cl-updated {
+
+		.hide-mobile {
 			display: none;
 		}
-		.cl-name {
-			width: 65%;
-		}
-		.cl-lang {
-			width: 25%;
-		}
 	}
-	@media screen and (max-width: 375px) {
-		.cl {
-			font-size: x-small;
-		}
-		.repo-table {
-			width: 92vw !important;
+
+	@media screen and (max-width: 380px) {
+		.row {
+			grid-template-columns: 32px 1fr 80px;
 		}
 	}
 </style>

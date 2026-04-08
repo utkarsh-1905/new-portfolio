@@ -1,42 +1,28 @@
 import { Octokit } from '@octokit/core';
-import { VITE_GITHUB_KEY } from '$env/static/private';
-
-const octokit = new Octokit({
-	auth: VITE_GITHUB_KEY,
-	timeZone: 'Asia/Calcutta'
-});
-
-//dont use this
-// export async function getUser(){
-//     try{
-//     const res = await octokit.rest.users.getAuthenticated();
-//     return res
-// }catch(e: any){
-//     console.log(e)
-// }
-// }
+import { env } from '$env/dynamic/private';
 
 export async function getRepos() {
 	try {
-		let res = await octokit.request('GET /users/utkarsh-1905/repos?per_page=100');
-		const data: any = res.data.map((repo: any) => {
-			if (!repo.fork) {
-				return {
-					name: repo.name,
-					description: repo.description,
-					url: repo.html_url,
-					language: repo.language,
-					updated_at: repo.updated_at,
-					created_at: repo.created_at
-				};
-			}
+		const octokit = new Octokit({
+			auth: env.VITE_GITHUB_KEY ?? ''
 		});
-		return data
-			.filter((repo: any) => repo !== undefined)
+		const res = await octokit.request('GET /users/utkarsh-1905/repos?per_page=100');
+		return (res.data as any[])
+			.filter((repo: any) => !repo.fork)
+			.map((repo: any) => ({
+				name: repo.name,
+				description: repo.description,
+				url: repo.html_url,
+				language: repo.language,
+				updated_at: repo.updated_at,
+				created_at: repo.created_at
+			}))
 			.sort(
-				(a: any, b: any) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+				(a: any, b: any) =>
+					new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
 			);
 	} catch (e) {
-		console.log(e);
+		console.error('GitHub API error:', e);
+		return [];
 	}
 }

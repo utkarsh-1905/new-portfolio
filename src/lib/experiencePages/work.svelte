@@ -1,66 +1,28 @@
 <script>
-	// const works = [
-	// 	{
-	// 		name: 'Enterprof',
-	// 		role: 'Blockchain Developer',
-	// 		type: 'Internship',
-	// 		jobs: [
-	// 			'Developed the frontend for the DAPP',
-	// 			'Modified the smart contract in solidity to minimize gas cost',
-	// 			'Created backend to listen to events on the smart contract',
-	// 			"Created packages and API's for their SaaS business model",
-	// 			'Developed the backend to execute on chain (polygon) transactions'
-	// 		],
-	// 		time: 'April-July 2022'
-	// 	},
-	// 	{
-	// 		name: 'Google Developers Student Club',
-	// 		role: 'Core Member',
-	// 		type: 'Full Time',
-	// 		jobs: ['Leading a Blockchain development program with 100+ students'],
-	// 		time: 'June 2022-Present'
-	// 	},
-	// 	{
-	// 		name: 'Microsoft Learn Student Chapter',
-	// 		role: 'Core Member',
-	// 		type: 'Full Time',
-	// 		jobs: [
-	// 			'Oraganized workshops and gave talks on OpenSource, Git and Github',
-	// 			'Helped in organizing Makeathon, a MLH sponsered Hackathon',
-	// 			'Developed the website for the chapter',
-	// 			'Developed a recruitment portal with firebase backend and edge functions'
-	// 		],
-	// 		time: 'December 2021-Present'
-	// 	},
-	// 	{
-	// 		name: 'Lifesap',
-	// 		role: 'Backend Developer',
-	// 		type: 'Internship',
-	// 		jobs: [
-	// 			'Developed the backend on firebase for the medical e-commerce platform',
-	// 			'Optimized API response times',
-	// 			'Used firebase and firestore'
-	// 		],
-	// 		time: 'May-July 2022'
-	// 	}
-	// ];
-
 	export let works;
 </script>
 
 <div class="container">
-	<div class="work-container">
-		{#each works as work}
-			<div class="work-card">
-				<div class="work-info">
-					<h2 class="work-title">{work.name}</h2>
-					<h5 class="work-role">{work.role} &#x2022; {work.type}</h5>
-					<ul class="work-jobs">
+	<div class="timeline">
+		{#each works as work, i}
+			<div class="entry">
+				<div class="dot-col">
+					<div class="dot"></div>
+					{#if i < works.length - 1}
+						<div class="line"></div>
+					{/if}
+				</div>
+				<div class="card">
+					<div class="card-top">
+						<h2 class="org">{work.name}</h2>
+						<small class="time">{work.time}</small>
+					</div>
+					<h5 class="role">{work.role} &bull; {work.type}</h5>
+					<ul class="jobs">
 						{#each work.jobs as job}
 							<li>{job}</li>
 						{/each}
 					</ul>
-					<small>{work.time}</small>
 				</div>
 			</div>
 		{/each}
@@ -69,57 +31,130 @@
 
 <style>
 	.container {
-		display: flex;
-		flex-direction: column;
 		width: 100%;
-		height: fit-content;
-		align-items: center;
-		justify-content: center;
+		padding-bottom: 2rem;
 	}
 
-	.work-container {
+	.timeline {
 		display: flex;
 		flex-direction: column;
-		flex-wrap: wrap;
-		width: 100%;
-		height: fit-content;
+		gap: 0;
+		margin-top: 1.5rem;
+		padding-left: 0.5rem;
+	}
+
+	.entry {
+		display: flex;
+		flex-direction: row;
+		gap: 1.25rem;
+	}
+
+	.dot-col {
+		display: flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
-		border-radius: 15px;
-		padding: 1rem;
-		padding-bottom: 2rem;
-		margin-top: 3rem;
-		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+		flex-shrink: 0;
+		padding-top: 1.6rem;
 	}
-	.work-card {
+
+	.dot {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: var(--font);
+		box-shadow: 0 0 10px var(--font-glow);
+		flex-shrink: 0;
+	}
+
+	.line {
+		width: 2px;
+		flex: 1;
+		min-height: 2rem;
+		background: linear-gradient(to bottom, var(--neumorph-loffset), var(--neumorph-doffset));
+		margin-top: 4px;
+	}
+
+	.card {
+		background: var(--bg);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-raised);
+		padding: 1.25rem 1.5rem;
+		margin-bottom: 1.25rem;
+		flex: 1;
+		transition: box-shadow 0.25s ease;
+	}
+
+	.card:hover {
+		box-shadow:
+			var(--shadow-raised),
+			0 0 0 1px rgba(244, 196, 48, 0.08);
+	}
+
+	.card-top {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.org {
+		font-size: 1.05rem;
+		font-weight: 600;
+		color: var(--font);
+	}
+
+	.time {
+		font-size: 0.75rem;
+		color: var(--muted);
+		font-family: 'Cascadia Code', monospace;
+		white-space: nowrap;
+	}
+
+	.role {
+		font-size: 0.82rem;
+		font-weight: 500;
+		color: var(--accent);
+		margin-top: 0.35rem;
+		letter-spacing: 0.02em;
+	}
+
+	.jobs {
+		list-style: none;
+		margin-top: 0.75rem;
 		display: flex;
 		flex-direction: column;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		background: var(--bg);
-		border-radius: 15px;
-		padding: 1rem;
-		width: 90%;
-		margin-top: 2rem;
+		gap: 0.4rem;
 	}
-	.work-info {
-		padding: 0 1rem 0 1rem;
+
+	.jobs li {
+		font-size: 0.85rem;
+		color: var(--sub-font);
+		padding-left: 1rem;
+		position: relative;
+		line-height: 1.5;
 	}
-	.work-title,
-	.work-role,
-	.work-jobs {
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
+
+	.jobs li::before {
+		content: '›';
+		position: absolute;
+		left: 0;
+		color: var(--font);
+		font-size: 1rem;
+		line-height: 1.4;
+		opacity: 0.6;
 	}
-	@media screen and (max-width: 450px) {
-		.work-info {
-			padding: 0 0.5rem 0 0.5rem;
+
+	@media screen and (max-width: 480px) {
+		.timeline {
+			padding-left: 0;
+		}
+		.entry {
+			gap: 0.75rem;
+		}
+		.card {
+			padding: 1rem;
 		}
 	}
 </style>

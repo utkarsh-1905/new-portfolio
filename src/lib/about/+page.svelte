@@ -1,39 +1,47 @@
 <script lang="ts">
 	import Tabs from '$lib/tabs.svelte';
 	import Projects from '$lib/experiencePages/projects.svelte';
-	import Github from '$lib/experiencePages/github.svelte';
+	import Certs from '$lib/experiencePages/certs.svelte';
 	import Resume from '$lib/experiencePages/resume.svelte';
 	import Work from '$lib/experiencePages/work.svelte';
 	import About from '$lib/experiencePages/about.svelte';
-	export let repos: any;
-	export let projects: any;
-	export let experience: any;
-	let active: string;
+	import type { Experience, Project, Cert } from '$lib/data';
+
+	export let projects: Project[];
+	export let experience: Experience[];
+	export let certs: Cert[];
+
+	let active: string = 'work';
 </script>
 
-<div class="container" id="about">
+<section class="about-section" id="about">
+	<h2 class="section-heading">about</h2>
 	<About />
-	<!-- add projects, github repos, previous work experience. and resume-->
-	<!-- lang i use and github contri chart at bottom -->
 	<Tabs bind:activeTab={active} />
-	{#if active === 'projects'}
-		<Projects {projects}/>
-	{:else if active === 'work'}
-		<Work works={experience}/>
-	{:else if active === 'github'}
-		<Github bind:repo={repos} />
-	{:else if active === 'resume'}
-		<Resume />
-	{/if}
-</div>
+	<div class="tab-content">
+		{#if active === 'projects'}
+			<Projects {projects} />
+		{:else if active === 'work'}
+			<Work works={experience} />
+		{:else if active === 'certs'}
+			<Certs {certs} />
+		{:else if active === 'resume'}
+			<Resume />
+		{/if}
+	</div>
+</section>
 
 <style>
-	.container {
+	.about-section {
+		margin-top: 4rem;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: space-evenly;
+		align-items: flex-start;
 		width: 100%;
-		height: fit-content;
+	}
+
+	.tab-content {
+		width: 100%;
+		min-height: 280px;
 	}
 </style>

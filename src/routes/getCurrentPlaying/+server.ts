@@ -1,45 +1,43 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import axios from 'axios';
+import { getAccessToken } from '$lib/server/spotify';
 
 export const GET: RequestHandler = async () => {
-	const response = await axios.get(
-		'https://api.spotify.com/v1/me/player/currently-playing?market=IN',
-		{
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8',
-				Authorization: `Bearer ${import.meta.env.VITE_SPOTIFY_OAUTH}`,
-				Redirect: 'follow'
-			}
-		}
-	);
-	if (response.status === 200) {
-		// Suggestion (check for correctness before using):
-		// return new Response(response.data, {
-		// 	status: response.status,
-		// 	headers: {
-		// 		'Content-Type': 'application/json;charset=utf-8',
-		// 	}
-		// });
-		// return ({
-		// 	status: response.status,
-		// 	body: response.data,
-		// 	headers:{
-		// 		'Content-Type': 'application/json;charset=utf-8',
-		// 	}
-		// })
-
-		return new Response(JSON.stringify(response.data), {
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
-			},
-			status: response.status
-		});
-	} else {
-		return new Response('I am not listening to music right now!!', {
-			status: response.status,
-			headers: {
-				'Content-Type': 'application/json;charset=utf-8'
-			}
+	const token = await getAccessToken();
+	if (!token) {
+		return new Response(JSON.stringify(null), {
+			headers: { 'Content-Type': 'application/json' }
 		});
 	}
+
+	const res = await fetch('https://api.spotify.com/v1/me/player/currently-playing?market=IN', {
+		headers: { Authorization: `Bearer ${token}` }
+	});
+
+	// 204 = nothing playing
+	if (res.status === 204) {
+		return new Response(JSON.stringify({ isPlaying: false }), {
+			headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' }
+		});
+	}
+
+	if (!res.ok) {
+		return new Response(JSON.stringify(null), {
+			headers: { 'Content-Type': 'application/json' }
+		});
+	}
+
+	const data = await res.json();
+	return new Response(
+		JSON.stringify({
+			isPlaying: data.is_playing ?? false,
+			name: data.item?.name ?? null,
+			artist: data.item?.artists?.map((a: { name: string }) => a.name).join(', ') ?? null,
+			albumArt:
+				data.item?.album?.images?.[1]?.url ?? data.item?.album?.images?.[0]?.url ?? null,
+			url: data.item?.external_urls?.spotify ?? null
+		}),
+		{
+			headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' }
+		}
+	);
 };

@@ -3099,46 +3099,26 @@
 	.row {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-around;
 		align-items: center;
-		overflow: hidden;
-		height: 100%;
-		/* width: 100%; */
+		width: max-content;
 		flex-shrink: 0;
-		position: relative;
-	}
-
-	.row:hover,
-	.row:active {
-		animation-play-state: paused;
-	}
-
-	@keyframes scroll {
-		0% {
-			transform: translateX(5000%);
-			/* transform: translate3d(100%,0,0); */
-		}
-		100% {
-			transform: translateX(-5000%);
-			/* transform: translate3d(-400%,0,0); */
-		}
 	}
 
 	.skill-icon {
-		width: 30px;
+		width: 36px;
+		height: 36px;
 	}
 
 	.skill-icon-container {
-		padding: 1rem;
-		width: 30px;
-		height: 30px;
+		padding: 0.7rem;
+		width: 52px;
+		height: 52px;
 		border-radius: 50%;
-		margin-left: 4rem;
-		animation: scroll 24s linear infinite;
-		animation-direction: normal;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+		margin-left: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		box-shadow: var(--shadow-raised);
 	}
 </style>

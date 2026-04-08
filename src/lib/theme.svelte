@@ -1,124 +1,106 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	let changeTheme: any;
-	let currTheme: boolean = true; //true for light, false for dark
-	const light: any = {
-		'--bg': '#c0c0c0',
-		'--font': '#a36a4f',
-		'--accent': '#000',
-		'--sub-font': '#37474f',
-		'--neumorph-doffset': '#949494',
-		'--neumorph-loffset': '#ececec',
-		'--neumorph-blur-radius': '20px',
-		'--neumorph-distance': '5px'
+	let currTheme = false; // false = light (default)
+
+	const dark: Record<string, string> = {
+		'--bg': '#13111c',
+		'--neumorph-doffset': '#0c0a13',
+		'--neumorph-loffset': '#1f1b2e',
+		'--neumorph-blur-radius': '14px',
+		'--neumorph-distance': '6px',
+		'--font': '#e8c547',
+		'--sub-font': '#b8b0d0',
+		'--muted': '#5e5878',
+		'--accent': '#a78bfa',
+		'--accent-glow': 'rgba(167,139,250,0.22)',
+		'--font-glow': 'rgba(232,197,71,0.18)',
+		'--icon-filter': 'none'
 	};
-	const dark: any = {
-		'--bg': '#252523',
-		'--font': '#ffba49',
-		'--sub-font': '#f7f0f5',
-		'--accent': '#000',
-		'--neumorph-doffset': '#1f1f1e',
-		'--neumorph-loffset': '#2b2b28',
-		'--neumorph-blur-radius': '6px',
-		'--neumorph-distance': '5px'
+
+	const light: Record<string, string> = {
+		'--bg': '#f0ece4',
+		'--neumorph-doffset': '#ccc7bc',
+		'--neumorph-loffset': '#ffffff',
+		'--neumorph-blur-radius': '14px',
+		'--neumorph-distance': '6px',
+		'--font': '#1a0a3c',
+		'--sub-font': '#2e2248',
+		'--muted': '#8c7fa0',
+		'--accent': '#7c3aed',
+		'--accent-glow': 'rgba(124,58,237,0.18)',
+		'--font-glow': 'rgba(26,10,60,0.1)',
+		'--icon-filter': 'brightness(0) opacity(0.65)'
 	};
+
+	function applyTheme(t: Record<string, string>) {
+		const root = document.documentElement;
+		Object.entries(t).forEach(([k, v]) => root.style.setProperty(k, v));
+	}
+
+	function toggleTheme() {
+		currTheme = !currTheme;
+		applyTheme(currTheme ? dark : light);
+		localStorage.setItem('theme', currTheme ? 'dark' : 'light');
+	}
+
 	onMount(() => {
-		const root: HTMLElement | null = document.querySelector(':root');
-		changeTheme = function () {
-			if (currTheme) {
-				Object.keys(light).forEach((key) => {
-					root!.style.setProperty(key, light[key]);
-				});
-				currTheme = false;
-			} else {
-				Object.keys(dark).forEach((key) => {
-					root!.style.setProperty(key, dark[key]);
-				});
-				currTheme = true;
-			}
-		};
+		const saved = localStorage.getItem('theme');
+		if (saved === 'dark') {
+			currTheme = true;
+			applyTheme(dark);
+		} else {
+			// light is default — apply it to ensure CSS vars are set
+			currTheme = false;
+			applyTheme(light);
+		}
 	});
 </script>
 
-<div class="themeSlider">
-	<label>
-		<input type="checkbox" on:change={changeTheme} />
-		<span class="slider" />
-	</label>
-</div>
+<button class="toggle" on:click={toggleTheme} aria-label="Toggle theme" title={currTheme ? 'Light mode' : 'Dark mode'}>
+	<span class="track">
+		<span class="thumb" class:light={!currTheme}>
+			<span class="icon">{currTheme ? '🌙' : '☀️'}</span>
+		</span>
+	</span>
+</button>
 
 <style>
-	.themeSlider {
-		/* width: 100vw; */
+	.toggle {
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		padding: 0;
 		display: inline-flex;
-		flex-direction: row;
-		justify-content: center;
 		align-items: center;
-		user-select: none;
-		cursor: pointer;
-		/* margin-top: 6rem; */
+		vertical-align: middle;
 	}
 
-	label {
+	.track {
+		display: inline-flex;
+		align-items: center;
+		width: 52px;
+		height: 28px;
+		border-radius: var(--radius-pill);
+		background: var(--bg);
+		box-shadow: var(--shadow-inset);
 		position: relative;
-		display: inline-block;
-		width: 70px;
-		height: 45px;
-		border-radius: 50px;
-		cursor: pointer;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
 	}
 
-	label:before {
+	.thumb {
 		position: absolute;
-		text-align: center;
-		content: '';
-		height: 35px;
-		width: 60px;
-		left: 5px;
-		bottom: 5px;
-		right: 5px;
-		top: 5px;
-		margin: 0 auto;
-		background-color: transparent;
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		-webkit-transition: 0.4s;
-		transition: 0.4s;
-		border-radius: 50px;
+		left: 3px;
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background: var(--bg);
+		box-shadow: var(--shadow-raised);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: left 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 
-	input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
+	.thumb.light { left: 27px; }
 
-	.slider {
-		position: absolute;
-		width: 15px;
-		height: 15px;
-		top: 15px;
-		bottom: 15px;
-		left: 15px;
-		border-radius: 50px;
-		transition: 0.4s;
-		background: var(--font);
-		cursor: pointer;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-	}
-
-	input:checked + .slider {
-		-webkit-transform: translateX(24px);
-		-ms-transform: translateX(24px);
-		transform: translateX(24px);
-	}
+	.icon { font-size: 11px; line-height: 1; }
 </style>

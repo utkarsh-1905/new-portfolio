@@ -1,43 +1,20 @@
 export async function GET() {
+	const today = new Date().toISOString().split('T')[0];
+
 	return new Response(
-		`
-      <?xml version="1.0" encoding="UTF-8" ?>
-      <urlset
-        xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="https://www.w3.org/1999/xhtml"
-        xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
-      >
-        <!-- <url> elements go here -->
-        <url>
-            <loc>https://utkarssh.tech</loc>
-            <lastmod>2022-11-30</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.5</priority>
-        </url>
-        <url>
-            <loc>https://utkarssh.tech/about</loc>
-            <lastmod>2022-11-30</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>1.0</priority>
-        </url>
-        <url>
-            <loc>https://utkarssh.tech/contact</loc>
-            <lastmod>2022-11-30</lastmod>
-            <priority>0.7</priority>
-        </url>
-        <url>
-            <loc>https://utkarssh.tech/blogs</loc>
-            <lastmod>2022-11-30</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>1.0</priority>
-        </url>
-      </urlset>`.trim(),
+		`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://utkarshtripathi.in/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>`,
 		{
 			headers: {
-				'Content-Type': 'application/xml'
+				'Content-Type': 'application/xml',
+				'Cache-Control': 'max-age=86400'
 			}
 		}
 	);

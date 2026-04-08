@@ -1,148 +1,231 @@
 <script lang="ts">
-	export let projects;
-	// function getStars(url: string){
-	// 	let c = [];
-	// 	fetch(url)
-	// 	.then(res => res.json())
-	// 	.then(data =>{
-	// 		// console.log(data)
-	// 		c = data
-	// 	}).catch(e=>{
-	// 		console.log("fetch error")
-	// 		return 0;
-	// 	})
-	// 	return c.length;
-	// }
+	import type { Project } from '$lib/data';
+	export let projects: Project[];
+
+	const featured = projects.filter((p) => p.featured);
+	const rest = projects.filter((p) => !p.featured);
 </script>
 
 <div class="container">
-	<p class="project-help">Don't forget to ⭐ these repositories!!</p>
-	<div class="projects-container">
-		{#each projects as project}
-			<div class="project-card">
-				<div class="project-info">
-					<a href={project.github} target="_blank" rel="noreferrer"
-						><h3>{project.name} &#x2197; 
-						 {#if project.stars}
-							<span>&#x2197;  {project.stars} ⭐</span>
-						 {/if}
-						</h3>
-						
-						</a
-					>
-					<p>{project.description}</p>
+	{#if featured.length > 0}
+		<div class="featured-grid">
+			{#each featured as project}
+				<div class="card card-featured">
+					<div class="card-top">
+						<div class="title-row">
+							<h3 class="project-title">{project.name}</h3>
+							<div class="link-row">
+								{#if project.live}
+									<a href={project.live} target="_blank" rel="noreferrer" class="link-btn">
+										live ↗
+									</a>
+								{/if}
+								{#if project.github}
+									<a href={project.github} target="_blank" rel="noreferrer" class="link-btn link-gh">
+										github ↗
+									</a>
+								{/if}
+							</div>
+						</div>
+						<p class="description">{project.description}</p>
+					</div>
+
+					{#if project.highlights.length > 0}
+						<ul class="highlights">
+							{#each project.highlights as h}
+								<li>{h}</li>
+							{/each}
+						</ul>
+					{/if}
+
+					<div class="stack-row">
+						{#each project.stack as tech}
+							<span class="badge">{tech}</span>
+						{/each}
+					</div>
 				</div>
-				<div class="project-stack">
-					{#each project.stack as stack}
-						<div class="project-stack-card">{stack}</div>
-					{/each}
+			{/each}
+		</div>
+	{/if}
+
+	{#if rest.length > 0}
+		<div class="grid">
+			{#each rest as project}
+				<div class="card">
+					<div class="card-top">
+						<div class="title-row">
+							<h3 class="project-title">{project.name}</h3>
+							<div class="link-row">
+								{#if project.live}
+									<a href={project.live} target="_blank" rel="noreferrer" class="link-btn">live ↗</a>
+								{/if}
+								{#if project.github}
+									<a href={project.github} target="_blank" rel="noreferrer" class="link-btn link-gh">github ↗</a>
+								{/if}
+							</div>
+						</div>
+						<p class="description">{project.description}</p>
+					</div>
+
+					{#if project.highlights.length > 0}
+						<ul class="highlights">
+							{#each project.highlights as h}
+								<li>{h}</li>
+							{/each}
+						</ul>
+					{/if}
+
+					<div class="stack-row">
+						{#each project.stack as tech}
+							<span class="badge">{tech}</span>
+						{/each}
+					</div>
 				</div>
-			</div>
-		{/each}
-	</div>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>
 	.container {
 		display: flex;
 		flex-direction: column;
+		gap: 1.25rem;
 		width: 100%;
-		height: fit-content;
-		align-items: center;
+		padding-bottom: 2rem;
+		margin-top: 1.5rem;
 	}
 
-	.project-help{
-		margin-top: 1rem;
+	.featured-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
 	}
-	.projects-container {
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		background: var(--bg);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-raised);
+		padding: 1.5rem;
+		transition: box-shadow 0.25s ease, transform 0.2s ease;
+	}
+
+	.card:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-raised), 0 0 0 1px rgba(244, 196, 48, 0.08);
+	}
+
+	.card-featured {
+		border-left: 3px solid var(--font);
+		padding-left: calc(1.5rem - 3px);
+	}
+
+	.card-top {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.title-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.project-title {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--font);
+	}
+
+	.link-row {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.link-btn {
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.25rem 0.7rem;
+		border-radius: var(--radius-pill);
+		background: var(--bg);
+		box-shadow: var(--shadow-raised);
+		color: var(--sub-font);
+		transition: box-shadow 0.2s ease, color 0.2s ease;
+		white-space: nowrap;
+	}
+
+	.link-btn:hover {
+		box-shadow: var(--shadow-inset);
+		color: var(--font);
+	}
+
+	.link-gh { color: var(--muted); }
+
+	.description {
+		font-size: 0.85rem;
+		color: var(--sub-font);
+		line-height: 1.65;
+	}
+
+	.highlights {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 0.65rem 0.9rem;
+		border-radius: var(--radius-sm);
+		background: var(--bg);
+		box-shadow: var(--shadow-inset);
+	}
+
+	.highlights li {
+		font-size: 0.8rem;
+		color: var(--font);
+		padding-left: 1rem;
+		position: relative;
+		line-height: 1.5;
+		font-weight: 500;
+	}
+
+	.highlights li::before {
+		content: '▸';
+		position: absolute;
+		left: 0;
+		color: var(--font);
+		opacity: 0.5;
+		font-size: 0.75rem;
+	}
+
+	.stack-row {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		width: 100%;
-		height: fit-content;
-		align-items: center;
-		justify-content: space-around;
-		border-radius: 15px;
-		padding: 1rem;
-		padding-bottom: 2rem;
-		margin-top: 3rem;
+		gap: 0.5rem;
+	}
+
+	.badge {
+		font-size: 0.7rem;
+		padding: 0.28rem 0.65rem;
+		border-radius: var(--radius-pill);
 		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+		box-shadow: var(--shadow-inset);
+		color: var(--sub-font);
+		font-family: 'Cascadia Code', monospace;
+		white-space: nowrap;
 	}
-	.project-card {
-		display: flex;
-		flex-direction: column;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		background: var(--bg);
-		border-radius: 15px;
-		padding: 1rem;
-		width: 40%;
-		/* min-height: 150px; */
-		margin-top: 2rem;
-	}
-	.project-info p {
-		padding: 1rem;
-	}
-	.project-stack {
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		justify-content: space-around;
-		align-items: center;
-		text-align: center;
-	}
-	.project-stack-card {
-		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		border-radius: 20px;
-		padding: 0.5rem 1rem;
-		font-size: small;
-	}
-	@media screen and (max-width: 1024px) {
-		.project-stack-card {
-			/* margin-top: 1rem; */
-			padding: 0.4rem;
-		}
-	}
-	@media screen and (max-width: 850px) {
-		.project-stack {
-			flex-direction: column;
-		}
-		.project-stack-card {
-			margin-top: 1rem;
-			padding: 0.5rem 1rem;
-		}
-	}
-	@media screen and (max-width: 576px) {
-		.projects-container {
-			flex-direction: column;
-		}
-		.project-card {
-			width: 80%;
-		}
-		.project-stack {
-			flex-direction: row;
-		}
-		.project-stack-card {
-			padding: 0.4rem;
-		}
-	}
-	@media screen and (max-width: 390px) {
-		.project-stack {
-			flex-direction: column;
-		}
-		.project-stack-card {
-			margin-top: 1rem;
-			padding: 0.5rem 1rem;
-		}
+
+	@media screen and (max-width: 768px) {
+		.grid { grid-template-columns: 1fr; }
 	}
 </style>

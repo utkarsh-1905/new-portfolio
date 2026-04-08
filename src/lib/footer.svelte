@@ -2,149 +2,155 @@
 	import Skills from './skill-icons.svelte';
 </script>
 
-<footer class="show-footer-after-70">
-	<div class="skills">
-		<Skills />
-	</div>
-	<div class="socials">
-		<div class="cpy">
-			<span class="footer-text"
-				>&copy; 2024 utkarsh tripathi &bull; <a class="sitemap" href="/sitemap.xml">sitemap</a
-				></span
-			>
+<footer>
+	<div class="marquee-wrap">
+		<div class="marquee-track">
+			<Skills />
+			<Skills />
 		</div>
-		<div class="icons">
-			<a href="https://github.com/utkarsh-1905" target="_blank" rel="noreferrer"
-				><img class="social-icon" src="/github.svg" width="32px" alt="github" /></a
+	</div>
+
+	<div class="footer-bottom">
+		<span class="copy"
+			>&copy; 2026 utkarsh tripathi &bull;
+			<a href="/sitemap.xml" class="sitemap-link">sitemap</a>
+		</span>
+		<div class="socials">
+			<a
+				href="https://github.com/utkarsh-1905"
+				target="_blank"
+				rel="noreferrer"
+				aria-label="GitHub"
 			>
+				<span class="icon-btn"><img src="/github.svg" width="16" height="16" alt="github" /></span>
+			</a>
 			<a
 				href="https://www.linkedin.com/in/utkarsh1905/"
 				target="_blank"
 				rel="noreferrer"
-				><img class="social-icon" src="/linkedin.svg" width="32px" alt="linkedin" /></a
+				aria-label="LinkedIn"
 			>
+				<span class="icon-btn"
+					><img src="/linkedin.svg" width="16" height="16" alt="linkedin" /></span
+				>
+			</a>
+			<a href="https://x.com/utripathi2002" target="_blank" rel="noreferrer" aria-label="Twitter/X">
+				<span class="icon-btn"><img src="/twitter.svg" width="16" height="16" alt="twitter" /></span
+				>
+			</a>
 			<a
-				href="https://x.com/utripathi2002"
+				href="mailto:utripathi2002@gmail.com?subject=Hey%20Utkarsh!"
 				target="_blank"
 				rel="noreferrer"
-				><img class="social-icon" src="/twitter.svg" width="32px" alt="twitter" /></a
+				aria-label="Email"
 			>
-			<a
-				href="mailto:utripathi2002@gmail.com?subject=Hey%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you%20!!"
-				target="_blank"
-				rel="noreferrer"><img class="social-icon" src="/mail.svg" width="32px" alt="email" /></a
-			>
+				<span class="icon-btn"><img src="/mail.svg" width="16" height="16" alt="email" /></span>
+			</a>
 		</div>
 	</div>
 </footer>
 
-<!-- below 586px -->
 <style>
-	.skills:hover,
-	.skills:active {
+	footer {
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow-x: hidden;
+		margin-top: 3rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	/* Skills marquee tray */
+	.marquee-wrap {
+		width: 100%;
+		padding: 1.5rem 0;
+		background: var(--bg);
+		box-shadow:
+			inset 0 5px 14px var(--neumorph-doffset),
+			inset 0 -5px 14px var(--neumorph-loffset);
+		overflow: hidden;
+	}
+
+	.marquee-track {
+		display: flex;
+		width: max-content;
+		animation: marquee 40s linear infinite;
+	}
+
+	.marquee-wrap:hover .marquee-track {
 		animation-play-state: paused;
 	}
-	.skills{
-		margin-top: 3rem;
-	}
-	footer {
-		left: 0;
-		right: 0;
-		bottom: 0;
-		width: 100vw;
-		/* padding-top: 4rem; */
-		height: max-content;
-		/* z-index: -10; */
-		/* background-image: url(/subtleWave.svg);
-        background-repeat: none;
-        background-size: cover;
-        background-position: center; */
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		user-select: none;
-		position: relative;
-		overflow-x: hidden;
-		/* margin-top: auto; */
+
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to   { transform: translateX(-50%); }
 	}
 
-	.skills {
-		width: 100vw !important;
-		height: 13vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		background-color: pink;
-		margin-bottom: 2rem;
-		background-color: transparent;
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-	}
-
-	.footer-text {
-		color: var(--font);
-	}
-	.socials {
+	/* Footer bar */
+	.footer-bottom {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-between;
 		align-items: center;
-		width: 87.5%;
-		margin-bottom: 1rem;
+		justify-content: space-between;
+		width: min(82vw, 1080px);
+		padding: 1rem 0 1.5rem;
 	}
-	.social-icon {
-		margin-left: 1rem;
-		text-decoration: none;
-		padding: 0.5rem;
-		border-radius: 50px;
+
+	.copy {
+		font-size: 0.75rem;
+		color: var(--muted);
+		letter-spacing: 0.02em;
+	}
+
+	.sitemap-link {
+		color: var(--font);
+		font-size: 0.75rem;
+		opacity: 0.6;
+		transition: opacity 0.2s;
+	}
+
+	.sitemap-link:hover {
+		opacity: 1;
+	}
+
+	.socials {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.icon-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
 		background: var(--bg);
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		/* box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius) #7e523d, calc(-1*var(--neumorph-distance)) calc(-1*var(--neumorph-distance)) var(--neumorph-blur-radius) #c88261; */
+		box-shadow: var(--shadow-raised);
+		transition:
+			box-shadow 0.2s ease,
+			transform 0.15s ease;
 	}
 
-	.social-icon:hover {
-		border-radius: 50px;
-		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+	.icon-btn:hover {
+		box-shadow: var(--shadow-inset);
+		transform: translateY(1px);
 	}
 
-	@media screen and (max-width: 586px) {
-		footer {
-			height: auto;
-			padding: 0;
-		}
-		.social-icon {
-			width: 18px;
-		}
-		.cpy {
-			width: 50%;
+	@media screen and (max-width: 640px) {
+		.footer-bottom {
+			width: 92vw;
+			flex-direction: column-reverse;
+			gap: 0.75rem;
+			text-align: center;
 		}
 	}
 
-	@media screen and (max-width: 390px) {
-		.socials {
-			width: 95%;
-		}
-	}
-
-	@media screen and (max-width: 350px) {
-		.cpy {
+	@media screen and (max-width: 380px) {
+		.copy {
 			display: none;
-		}
-
-		.socials {
-			flex-direction: row;
-			justify-content: center;
 		}
 	}
 </style>

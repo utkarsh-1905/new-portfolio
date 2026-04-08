@@ -1,50 +1,42 @@
-<div>
-	<div class="center" />
+<div class="loading-wrap">
+	<div class="spinner-outer">
+		<div class="spinner-inner"></div>
+	</div>
 </div>
 
 <style>
-	div {
-		width: 80vw;
-		height: 70vh;
-		margin: 0 auto;
-		margin-top: 6rem;
+	.loading-wrap {
+		position: fixed;
+		inset: 0;
 		background: var(--bg);
 		display: flex;
-		justify-content: center;
 		align-items: center;
+		justify-content: center;
+		z-index: 500;
 	}
-	.center {
-		width: 100px;
-		height: 100px;
-		border-radius: 50%;
-		position: relative;
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-	}
-	.center:before {
-		position: absolute;
-		content: '';
-		width: 80px;
-		height: 80px;
-		border-top: 7px solid var(--font);
-		animation: spin 2s linear infinite;
-		box-sizing: border-box;
+
+	.spinner-outer {
+		width: 64px;
+		height: 64px;
 		border-radius: 50%;
 		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+		box-shadow: var(--shadow-raised);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.spinner-inner {
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		background: var(--bg);
+		box-shadow: var(--shadow-inset);
+		border-top: 3px solid var(--font);
+		animation: spin 1s linear infinite;
 	}
 
 	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
+		to { transform: rotate(360deg); }
 	}
 </style>

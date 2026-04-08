@@ -1,193 +1,183 @@
 <script lang="ts">
-	export const prerender = true;
+	declare const Calendly: any;
 	import { loading } from '$lib/loading';
 	$loading = false;
 </script>
 
-<div class="container" id="contact">
-	<h1>contact me</h1>
-	<div class="lottie-container">
-		<!-- <div class="lottie" bind:this={lottieContainer}></div> -->
+<section class="contact-section" id="contact">
+	<h2 class="section-heading">contact me</h2>
+
+	<div class="cta-row">
 		<button
-			class="submit calendly"
+			class="calendly-btn"
 			on:click={() => {
 				Calendly.initPopupWidget({ url: 'https://calendly.com/heyutkarsh/30min' });
-				return false;
-			}}>let's meet</button
+			}}
 		>
+			📅&nbsp; let's meet
+		</button>
+		<p class="helper">or fill out the form — i usually respond within the same business day</p>
 	</div>
-	<p class="helper-text">for any queries, please fill the below form, i usually respond within the same business day</p>
-	<form action="https://api.web3forms.com/submit" method="post" class="contact">
+
+	<form action="https://api.web3forms.com/submit" method="post" class="form">
 		<input type="hidden" name="access_key" value="d6a0ccc5-4cb8-4d11-8049-a220977183fc" />
 		<input type="hidden" name="subject" value="Someone wants to contact me" />
-		<input type="hidden" name="redirect" value="https://www.utkarssh.tech/thanks" />
-		<div class="space">
-			<label for="contact-name">name</label>
-			<input type="text" required id="contact-name" name="name" placeholder="steve wozniak" />
+		<input type="hidden" name="redirect" value="https://www.utkarshtripathi.in/thanks" />
+
+		<div class="field-row">
+			<div class="field">
+				<label for="contact-name">name</label>
+				<input type="text" required id="contact-name" name="name" placeholder="steve wozniak" />
+			</div>
+			<div class="field">
+				<label for="contact-email">email</label>
+				<input type="email" required id="contact-email" name="email" placeholder="steve@apple.com" />
+			</div>
 		</div>
-		<div class="space">
-			<label for="contact-email">email</label>
-			<input type="email" required id="contact-email" name="email" placeholder="steve@google.com" />
-		</div>
-		<div class="space">
+
+		<div class="field">
 			<label for="contact-subject">subject</label>
-			<input
-				type="text"
-				required
-				id="contact-subject"
-				name="subject"
-				placeholder="i want to know about..."
-			/>
+			<input type="text" required id="contact-subject" name="subject" placeholder="i want to know about..." />
 		</div>
-		<div class="space">
+
+		<div class="field">
 			<label for="contact-message">message</label>
-			<textarea
-				id="contact-message"
-				required
-				rows="10"
-				cols="20"
-				name="message"
-				placeholder="hey utkarsh, ..."
-			/>
+			<textarea id="contact-message" required rows="7" name="message" placeholder="hey utkarsh, ..." />
 		</div>
-		<input type="submit" class="submit" value="submit" />
+
+		<button type="submit" class="submit-btn">send message ↗</button>
 	</form>
-</div>
+</section>
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		margin: 1rem;
-		height: 100%;
-	}
-
-	h1 {
-		padding: 1rem;
-		letter-spacing: 5px;
-		margin-top: 1rem;
-	}
-	.contact {
+	.contact-section {
+		margin: 4rem auto 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-between;
-		height: 100%;
+		padding-bottom: 4rem;
+		max-width: 680px;
 		width: 100%;
-		margin-top: 2rem;
-	}
-	input,
-	textarea {
-		border: none;
-		margin: 1rem;
-		width: 50%;
-		padding: 0.75rem;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		border-radius: 15px;
-		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
 	}
 
-	.submit {
-		border-radius: 15px;
-		background: var(--bg);
-		box-shadow: var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
-		color: var(--light-font);
-		font-size: medium;
-		cursor: pointer;
-		margin-top: 2rem;
-	}
-
-	.calendly {
-		border: none;
-		padding: 1rem;
-		margin-top: 1rem;
+	/* CTA */
+	.cta-row {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
 		margin-bottom: 2rem;
+		flex-wrap: wrap;
+		width: 100%;
 	}
 
-	.helper-text {
-		font-size: medium;
-		padding: 0.75rem;
-		width: 80%;
-		text-align: left;
-	}
-
-	.submit:hover {
-		border-radius: 15px;
+	.calendly-btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.65rem 1.4rem;
+		border-radius: var(--radius-pill);
 		background: var(--bg);
-		box-shadow: inset var(--neumorph-distance) var(--neumorph-distance) var(--neumorph-blur-radius)
-				var(--neumorph-doffset),
-			inset calc(-1 * var(--neumorph-distance)) calc(-1 * var(--neumorph-distance))
-				var(--neumorph-blur-radius) var(--neumorph-loffset);
+		box-shadow: var(--shadow-raised);
+		border: none;
+		color: var(--font);
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		cursor: pointer;
+		transition: box-shadow 0.2s ease, transform 0.15s ease;
 	}
 
-	input:focus,
-	textarea:focus {
-		outline: none;
+	.calendly-btn:hover {
+		box-shadow: var(--shadow-inset);
+		transform: translateY(1px);
 	}
 
-	input[type='text'],
-	input[type='email'],
-	textarea {
-		color: var(--light-font);
+	.helper {
+		font-size: 0.8rem;
+		color: var(--muted);
+		max-width: 34ch;
+		line-height: 1.5;
+	}
+
+	/* Form */
+	.form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		width: 100%;
+	}
+
+	.field-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
 	}
 
 	label {
-		color: var(--light-font);
-		font-size: large;
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: lowercase;
+		color: var(--muted);
 	}
 
-	.lottie-container {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+	input, textarea {
+		background: var(--bg);
+		border: 1px solid rgba(255,255,255,0.06);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-inset);
+		color: var(--sub-font);
+		font-size: 0.875rem;
+		padding: 0.75rem 1rem;
 		width: 100%;
+		resize: vertical;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		font-family: 'Inter', sans-serif;
 	}
 
-	.space {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-		width: 100%;
+	input::placeholder, textarea::placeholder {
+		color: var(--muted);
+		opacity: 0.7;
 	}
 
-	@media screen and (max-width: 480px) {
-		h1 {
-			font-size: xx-large !important;
-		}
-
-		.space {
-			flex-direction: column;
-		}
-
-		input,
-		textarea {
-			width: 75%;
-		}
+	input:focus, textarea:focus {
+		outline: none;
+		border-color: rgba(155, 114, 240, 0.4);
+		box-shadow: var(--shadow-inset), 0 0 0 3px rgba(155, 114, 240, 0.1);
 	}
 
-	@media screen and (max-width: 380px) {
-		h1 {
-			font-size: x-large !important;
-		}
+	.submit-btn {
+		align-self: center;
+		padding: 0.7rem 1.75rem;
+		border-radius: var(--radius-pill);
+		background: var(--bg);
+		box-shadow: var(--shadow-raised), 0 0 0 1px rgba(240,192,64,0.15);
+		border: none;
+		color: var(--font);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		cursor: pointer;
+		transition: box-shadow 0.2s ease, transform 0.15s ease;
+		margin-top: 0.5rem;
 	}
-	@media screen and (max-width: 320px) {
-		h1 {
-			font-size: large !important;
-		}
+
+	.submit-btn:hover {
+		box-shadow: var(--shadow-inset);
+		transform: translateY(1px);
+	}
+
+	@media screen and (max-width: 600px) {
+		.contact-section { max-width: 100%; }
+		.field-row { grid-template-columns: 1fr; }
+		.cta-row { flex-direction: column; align-items: center; }
+		.submit-btn { width: 100%; justify-content: center; }
 	}
 </style>

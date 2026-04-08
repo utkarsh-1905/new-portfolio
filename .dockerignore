@@ -1,7 +1,9 @@
 node_modules/
 .svelte-kit/
-.svelte-kit-cache/
-.npmrc
-Caddyfile
 build/
-./.env
+.env*
+.git/
+.gitignore
+*.md
+Makefile
+docker-compose.yml
