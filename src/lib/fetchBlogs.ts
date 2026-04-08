@@ -1,12 +1,13 @@
-import axios from 'axios';
 import { env } from '$env/dynamic/private';
 
 export const mediumBlogs = async () => {
 	const mediumUrl =
 		'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40utripathi2002';
 	try {
-		const rss = await axios.get(mediumUrl);
-		return rss.data.items.map((el: any) => ({
+		const res = await fetch(mediumUrl);
+		if (!res.ok) return [];
+		const data = await res.json();
+		return data.items.map((el: any) => ({
 			title: el.title,
 			link: el.link,
 			categories: el.categories,
@@ -26,12 +27,14 @@ export const mediumBlogs = async () => {
 
 export const devtoBlogs = async () => {
 	try {
-		const res = await axios.get('https://dev.to/api/articles?username=utkarsh1905', {
+		const res = await fetch('https://dev.to/api/articles?username=utkarsh1905', {
 			headers: {
 				'api-key': env.VITE_DEVTO ?? ''
 			}
 		});
-		return res.data.map((el: any) => ({
+		if (!res.ok) return [];
+		const data = await res.json();
+		return data.map((el: any) => ({
 			title: el.title,
 			link: el.url,
 			categories: el.tag_list,

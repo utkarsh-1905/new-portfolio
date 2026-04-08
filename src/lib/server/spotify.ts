@@ -5,9 +5,7 @@ export async function getAccessToken(): Promise<string | null> {
 	if (!env.SPOTIFY_CLIENT_ID || !env.SPOTIFY_CLIENT_SECRET || !env.SPOTIFY_REFRESH_TOKEN) {
 		return null;
 	}
-	const creds = Buffer.from(
-		`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`
-	).toString('base64');
+	const creds = btoa(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`);
 
 	const res = await fetch('https://accounts.spotify.com/api/token', {
 		method: 'POST',
